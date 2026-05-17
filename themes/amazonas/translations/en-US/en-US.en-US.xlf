@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="/home/etssoft/web/demo2.ets-demos.com/public_html/amazonasdev/adminct3lhs" source-language="en-US" target-language="en-US" datatype="plaintext">
+    <body>
+      <trans-unit id="3fcc728fff0d8fba62d8c27ce4e9e168">
+        <source>Theme Option</source>
+        <target>Theme Option</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="16bfbf9c462762cf1cba4134ec53c504">
+        <source>Loading</source>
+        <target>Loading</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a7d784a6301793f61c070496d6988d36">
+        <source>Updating...</source>
+        <target>Updating...</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6d99337f3fcdb96a3e499628a3e26bc0">
+        <source>Theme options</source>
+        <target>Theme options</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="45e035baf33a8e403766a606457f8b10">
+        <source>Theme color</source>
+        <target>Theme color</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d7f846eb060bfe68fe2feddc54ef78e7">
+        <source>Float header</source>
+        <target>Float header</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="93cba07454f06a4a960172bbd6e2a435">
+        <source>Yes</source>
+        <target>Yes</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bafd7322c6e97d25b6299b5d6fe8920b">
+        <source>No</source>
+        <target>No</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="69ee1afc9b3d02e53d9f733c1993b568">
+        <source>Background image</source>
+        <target>Background image</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="205f915260f7e8910388b7236aa7ba5a">
+        <source>Reset to default</source>
+        <target>Reset to default</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a17e0116444cd4fa129c306aa79f1c96">
+        <source>The product has been successfully added to comparison</source>
+        <target>The product has been successfully added to comparison</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bca54823c9ea283ac92870efd877f446">
+        <source>View all products</source>
+        <target>View all products</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="91ac0d9d12e5d418a4cbf9b0418d362b">
+        <source>The product has been removed from comparison</source>
+        <target>The product has been removed from comparison</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

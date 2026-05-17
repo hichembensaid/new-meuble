@@ -1,0 +1,25 @@
+<?php return array (
+  'parameters' => 
+  array (
+    'database_host' => '127.0.0.1',
+    'database_port' => '3307',
+    'database_name' => 'meuble2_db',
+    'database_user' => 'root',
+    'database_password' => '',
+    'database_prefix' => 'ps_',
+    'database_engine' => 'InnoDB',
+    'mailer_transport' => 'smtp',
+    'mailer_host' => '127.0.0.1',
+    'mailer_user' => NULL,
+    'mailer_password' => NULL,
+    'secret' => 'tZq7kA7hFbVYueYSP5Rm6zHUNeqxzJ5J4ppQWx1scfmHFopiMK2HOdUnqfTZXiH4',
+    'ps_caching' => 'CacheMemcache',
+    'ps_cache_enable' => false,
+    'ps_creation_date' => '2026-05-15',
+    'locale' => 'fr-FR',
+    'use_debug_toolbar' => false,
+    'cookie_key' => 'QFOQKfr9psC8erwRLfBhRVodD2jhcABLPwt8EsUyI9DtOhooGyvdQiZZdnHryB3z',
+    'cookie_iv' => 'MOA0B8YNMhPzXI0rofs8VoXLUfe7nOP8',
+    'new_cookie_key' => 'def000003d40ff1987599aae3ef56c22b05715c18a662072fc1241853c2c9d740bf0fbde0732dc9e3fb14fcbaf4c2b09ca97dc6c9b8a81977a553d28e43e03b7d2ad51ca',
+  ),
+);

@@ -1,0 +1,24 @@
+{
+    "name": "yourname/quickorder",
+    "description": "Module PrestaShop 8 - Commande Rapide paiement à la livraison",
+    "type": "prestashop-module",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Votre Nom"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "QuickOrder\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "stable"
+}
