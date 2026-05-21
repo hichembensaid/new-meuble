@@ -519,7 +519,7 @@ class Ybc_themeconfig extends Module
                 'label' => $this->l('Phone number show'),
                 'type' => 'text',
                 'group' => 'ybc_tab_contact',
-                'default' => '0123-456-789',
+                'default' => '0123-456-789999',
             ),
             'BLOCKCONTACTINFOS_PHONE_CALL' => array(
                 'label' => $this->l('Phone number to call'),

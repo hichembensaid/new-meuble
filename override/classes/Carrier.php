@@ -33,19 +33,19 @@ class Carrier extends CarrierCore
 {
     /*
     * module: mbeshipping
-    * date: 2026-05-15 09:38:34
+    * date: 2026-05-21 11:57:22
     * version: 2.2.2
     */
     const TESTTEST = 'Dont remove';
     /*
     * module: mbeshipping
-    * date: 2026-05-15 09:38:34
+    * date: 2026-05-21 11:57:22
     * version: 2.2.2
     */
     public $mbe_module = true;
     /*
     * module: mbeshipping
-    * date: 2026-05-15 09:38:34
+    * date: 2026-05-21 11:57:22
     * version: 2.2.2
     */
     public static function getCarriers($id_lang, $active = false, $delete = false, $id_zone = false, $ids_group = null,

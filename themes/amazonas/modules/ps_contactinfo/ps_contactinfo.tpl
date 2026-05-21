@@ -20,7 +20,7 @@
 *}
 
 <div class="block-contact links wrapper">
-    <h4 class="text-uppercase title-footer-block block-contact-title hidden-xs-down">{l s='Contact Us' d='Shop.Theme'}</h4>
+    <h4 class="text-uppercase title-footer-block block-contact-title hidden-xs-down">{l s='Contact Us' d='ShopThemeCustomerAccount'}</h4>
     
     <div class="title clearfix hidden-md-up" data-target="#contact_footer" data-toggle="collapse">
         <span class="h3">{l s='Contact Us' d='Shop.Theme.CustomerAccount'}</span>
@@ -35,7 +35,7 @@
       {if isset($tc_config.BLOCKCONTACTINFOS_ADDRESS) && $tc_config.BLOCKCONTACTINFOS_ADDRESS}
             <div>
                 <i aria-hidden="true" class="icon_pin_alt"></i>
-                {l s='Address:' d='Shop.Theme'}
+                {l s='Address:' d='Shop.Theme'} 
                 {$tc_config.BLOCKCONTACTINFOS_ADDRESS|escape:'html':'UTF-8'}
             </div>
       {elseif (isset($contact_infos.address.address1) && $contact_infos.address.address1) || (isset($contact_infos.address.address2) && $contact_infos.address.address2)}
@@ -85,7 +85,7 @@
         <div>
             <a href="tel:{$tc_config.BLOCKCONTACTINFOS_PHONE_CALL|escape:'html':'UTF-8'}">
               <i class="fa fa-phone"></i>
-              {l s='Phone: ' d='Modules.Contactinfo.Shop'}{$tc_config.BLOCKCONTACTINFOS_PHONE_LABEL|escape:'html':'UTF-8'}
+              {l s='Phone: ' d='Modules.Contactinfo.Shop'} {$tc_config.BLOCKCONTACTINFOS_PHONE_LABEL|escape:'html':'UTF-8'}
           </a>
         </div>
       {/if}
