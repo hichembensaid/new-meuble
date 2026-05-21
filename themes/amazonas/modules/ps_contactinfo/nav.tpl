@@ -24,7 +24,7 @@
       <div class="contact_link_item">
           <a href="tel:{$tc_config.BLOCKCONTACTINFOS_PHONE_CALL|escape:'html':'UTF-8'}">
               <i class="fa fa-phone" aria-hidden="true"></i>
-              {l s='Phone: ' d='Modules.Contactinfo.Shop'}{$tc_config.BLOCKCONTACTINFOS_PHONE_LABEL|escape:'html':'UTF-8'}
+              {l s='Phone: ' d='Modules.Contactinfo.Shop'} {$tc_config.BLOCKCONTACTINFOS_PHONE_LABEL|escape:'html':'UTF-8'}
           </a>
       </div>
     {/if}
@@ -32,7 +32,7 @@
      <div class="contact_link_item">
           <a href="mailto:{$contact_infos.email|escape:'html':'UTF-8'}">
               <i class="fa fa-envelope" aria-hidden="true"></i>
-              {l s='Email: ' d='Modules.Contactinfo.Shop'}{$contact_infos.email|escape:'html':'UTF-8'}
+              {l s='Email: ' d='Modules.Contactinfo.Shop'} {$contact_infos.email|escape:'html':'UTF-8'}
           </a>
       </div>
     {/if}

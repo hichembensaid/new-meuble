@@ -16,7 +16,7 @@ monolog:
     main:
       type: stream
       path: '%env(PS_LOG_OUTPUT)%'
-      level: debug
+      level: notice
       channels: [ "!event" ]
     console:
       type: console

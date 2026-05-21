@@ -102,13 +102,6 @@
             </a>
         </div>
       {/if}
-      {if isset($tc_config.BLOCKCONTACTINFOS_SKYPE) && $tc_config.BLOCKCONTACTINFOS_SKYPE}
-        <div>
-            <a href="skype:live:{$tc_config.BLOCKCONTACTINFOS_SKYPE|escape:'html':'UTF-8'}?call">
-                <i class="fa fa-skype"></i>
-                {l s='Skype:' d='Shop.Theme'} {$tc_config.BLOCKCONTACTINFOS_SKYPE|escape:'html':'UTF-8'}
-            </a>
-        </div>
-      {/if}
+
     </div>
 </div>

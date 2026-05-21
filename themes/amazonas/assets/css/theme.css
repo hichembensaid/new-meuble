@@ -10113,8 +10113,8 @@ body#checkout #gift_message {
   transform: translateY(-50%);
 }
 .block-contact #contact_footer i {
-  border: 1px solid #666666;
-  color: #666;
+  border: 1px solid #f7c669;
+  color: #f7c669;
   display: inline-block;
   font-size: 16px;
   height: 27px;
