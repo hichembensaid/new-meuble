@@ -34,7 +34,7 @@
     <div class="block">
       <div class="icon"><i class="material-icons">&#xE0CD;</i></div>
       <div class="data">
-        {l s='Call us:' d='Shop.Theme.Global'}<br/>
+        {l s='Nous appeler:' d='Shop.Theme.Global'}<br/>
         <a href="tel:{$contact_infos.phone}">{$contact_infos.phone}</a>
        </div>
     </div>
@@ -54,7 +54,7 @@
     <div class="block">
       <div class="icon"><i class="material-icons">&#xE158;</i></div>
       <div class="data email">
-        {l s='Email us:' d='Shop.Theme.Global'}<br/>
+        {l s='Nous envoyer un email:' d='Shop.Theme.Global'}<br/>
       </div>
       {mailto address=$contact_infos.email encode="javascript"}
     </div>

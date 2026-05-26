@@ -40,7 +40,7 @@
     {if $contact_infos.phone}
       <br>
       {* [1][/1] is for a HTML tag. *}
-      {l s='Call us: [1]%phone%[/1]'
+      {l s='Nous appeler: [1]%phone%[/1]'
         sprintf=[
         '[1]' => "<a href='tel:{$contact_infos['phone']|replace:' ':''}'>",
         '[/1]' => '</a>',
@@ -64,7 +64,7 @@
     {/if}
     {if $contact_infos.email && $display_email}
       <br>
-        {l s='Email us:' d='Shop.Theme.Global'}
+        {l s='Nous envoyer un email:' d='Shop.Theme.Global'}
         {mailto address=$contact_infos.email encode="javascript"}
     {/if}
   </div>

@@ -31,6 +31,14 @@
   <meta property="og:site_name" content="{$shop.name|escape:'html':'UTF-8'}">
   <meta property="og:description" content="{$page.meta.description|escape:'html':'UTF-8'}">
   <meta property="og:image" content="{$product.cover.large.url|escape:'html':'UTF-8'}">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="800">
+  <meta property="og:image:alt" content="{$product.name|escape:'html':'UTF-8'}">
+  <meta property="og:locale" content="fr_TN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{$page.meta.title|escape:'html':'UTF-8'}">
+  <meta name="twitter:description" content="{$page.meta.description|escape:'html':'UTF-8'}">
+  <meta name="twitter:image" content="{$product.cover.large.url|escape:'html':'UTF-8'}">
   <meta property="product:pretax_price:amount" content="{$product.price_tax_exc|escape:'html':'UTF-8'}">
   <meta property="product:pretax_price:currency" content="{$currency.iso_code|escape:'html':'UTF-8'}">
   <meta property="product:price:amount" content="{$product.price_amount|escape:'html':'UTF-8'}">

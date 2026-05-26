@@ -1,0 +1,427 @@
+﻿# ============================================================
+# REDIRECTIONS 301 — Migration lart-du-meuble.tn
+# Genere le : 25/05/2026 19:08
+# 251 produits + 3 categories = 254 redirections
+#
+# INSTRUCTIONS :
+# Copier ce bloc dans le .htaccess de PRODUCTION
+# APRES 'RewriteEngine On' dans le bloc <IfModule mod_rewrite.c>
+# ============================================================
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# --- Redirections CATEGORIES (3) ---
+RedirectMatch 301 ^/fr/dressing-([0-9]+)/?$ /fr/meuble-de-jardin-$1/
+
+RedirectMatch 301 ^/fr/sejour-banquet--([0-9]+)/?$ /fr/sejour-banquet-$1/
+
+RedirectMatch 301 ^/fr/chaise-cuisine-([0-9]+)/?$ /fr/chaise-cuisine-et-jardin-$1/
+
+
+# --- Redirections PRODUITS (251) ---
+RedirectMatch 301 ^/fr/porte-chaussure-([0-9]+).html$ /fr/porte-chaussure-$1.html
+
+
+RedirectMatch 301 ^/fr/bureau--([0-9]+).html$ /fr/bureau--$1.html
+
+
+RedirectMatch 301 ^/fr/bureau-([0-9]+).html$ /fr/bureau-$1.html
+
+
+
+
+RedirectMatch 301 ^/fr/pliante-rectangulaire--([0-9]+).html$ /fr/pliante-rectangulaire--$1.html
+
+RedirectMatch 301 ^/fr/verzaschi-massif--([0-9]+).html$ /fr/verzaschi-massif--$1.html
+
+RedirectMatch 301 ^/fr/penche-acrylique--([0-9]+).html$ /fr/penche-acrylique--$1.html
+
+RedirectMatch 301 ^/fr/porte-monteaux-([0-9]+).html$ /fr/porte-monteaux-$1.html
+
+RedirectMatch 301 ^/fr/confortex-diamant-4-ans-garantie-([0-9]+).html$ /fr/confortex-diamant-4-ans-garantie-$1.html
+
+RedirectMatch 301 ^/fr/confortex-orthopedique-5-ans-de-garanties--([0-9]+).html$ /fr/confortex-orthopedique-5-ans-de-garanties--$1.html
+
+RedirectMatch 301 ^/fr/banquette-bois-massif-model-patte-de-chat-([0-9]+).html$ /fr/banquette-bois-massif-model-patte-de-chat-$1.html
+
+RedirectMatch 301 ^/fr/bois-massif-patte-de-chat-([0-9]+).html$ /fr/bois-massif-patte-de-chat-$1.html
+
+RedirectMatch 301 ^/fr/bois-massif-rond-([0-9]+).html$ /fr/bois-massif-rond-$1.html
+
+RedirectMatch 301 ^/fr/tabouret-vinyle-([0-9]+).html$ /fr/tabouret-vinyle-$1.html
+
+RedirectMatch 301 ^/fr/tabouret-fly--([0-9]+).html$ /fr/tabouret-fly--$1.html
+
+RedirectMatch 301 ^/fr/chaise-palma-([0-9]+).html$ /fr/chaise-palma-$1.html
+
+RedirectMatch 301 ^/fr/chaise-relax-([0-9]+).html$ /fr/chaise-relax-$1.html
+
+RedirectMatch 301 ^/fr/chaise-new-fiesta-([0-9]+).html$ /fr/chaise-new-fiesta-$1.html
+
+RedirectMatch 301 ^/fr/chaise-infotech-([0-9]+).html$ /fr/chaise-infotech-$1.html
+
+RedirectMatch 301 ^/fr/chaise-ergo--([0-9]+).html$ /fr/chaise-ergo--$1.html
+
+RedirectMatch 301 ^/fr/rangement-de-dossiers-([0-9]+).html$ /fr/rangement-de-dossiers-$1.html
+
+RedirectMatch 301 ^/fr/armoire-avec-3-rangements-de-dossiers-([0-9]+).html$ /fr/armoire-avec-3-rangements-de-dossiers-$1.html
+
+RedirectMatch 301 ^/fr/armoire-rangement-avec-2-portes--([0-9]+).html$ /fr/armoire-rangement-avec-2-portes--$1.html
+
+RedirectMatch 301 ^/fr/table-mega-([0-9]+).html$ /fr/table-mega-$1.html
+
+RedirectMatch 301 ^/fr/table-midi--([0-9]+).html$ /fr/table-midi--$1.html
+
+RedirectMatch 301 ^/fr/table-isotop-pvc-([0-9]+).html$ /fr/table-isotop-pvc-$1.html
+
+RedirectMatch 301 ^/fr/porte-manteau-bois-([0-9]+).html$ /fr/porte-manteau-bois-$1.html
+
+RedirectMatch 301 ^/fr/chaise-architecte-double-riverain--([0-9]+).html$ /fr/chaise-architecte-double-riverain--$1.html
+
+RedirectMatch 301 ^/fr/table-square-([0-9]+).html$ /fr/table-square-$1.html
+
+RedirectMatch 301 ^/fr/table-square--([0-9]+).html$ /fr/table-square--$1.html
+
+RedirectMatch 301 ^/fr/bureau-standard-stratifie-2-tiroirs-([0-9]+).html$ /fr/bureau-standard-stratifie-2-tiroirs-$1.html
+
+RedirectMatch 301 ^/fr/element-4-portes-vitre--([0-9]+).html$ /fr/element-4-portes-vitre--$1.html
+
+RedirectMatch 301 ^/fr/bloc-tiroirs-([0-9]+).html$ /fr/bloc-tiroirs-$1.html
+
+RedirectMatch 301 ^/fr/element-elegance--([0-9]+).html$ /fr/element-elegance--$1.html
+
+RedirectMatch 301 ^/fr/table-basse-elegance--([0-9]+).html$ /fr/table-basse-elegance--$1.html
+
+RedirectMatch 301 ^/fr/table-basse-massif-([0-9]+).html$ /fr/table-basse-massif-$1.html
+
+RedirectMatch 301 ^/fr/slim-concul-([0-9]+).html$ /fr/slim-concul-$1.html
+
+RedirectMatch 301 ^/fr/tabouret-avec-roulette-reglable--([0-9]+).html$ /fr/tabouret-avec-roulette-reglable--$1.html
+
+RedirectMatch 301 ^/fr/chaise-klik--([0-9]+).html$ /fr/chaise-klik--$1.html
+
+RedirectMatch 301 ^/fr/salle-a-manger-model-h-([0-9]+).html$ /fr/salle-a-manger-model-h-$1.html
+
+RedirectMatch 301 ^/fr/rangement-multi-fonction--([0-9]+).html$ /fr/rangement-multi-fonction--$1.html
+
+RedirectMatch 301 ^/fr/porte-chaussure-contemporain--([0-9]+).html$ /fr/porte-chaussure-contemporain--$1.html
+
+RedirectMatch 301 ^/fr/salle-a-manger-structure-bois-siege-et-dos-garnis-en-tissu-([0-9]+).html$ /fr/salle-a-manger-structure-bois-siege-et-dos-garnis-en-tissu-$1.html
+
+RedirectMatch 301 ^/fr/element-entree-ciell-1-([0-9]+).html$ /fr/element-entree-ciell-1-$1.html
+
+RedirectMatch 301 ^/fr/salle-a-manger-structure-bois-model-royale-([0-9]+).html$ /fr/salle-a-manger-structure-bois-model-royale-$1.html
+
+RedirectMatch 301 ^/fr/salle-a-manger-structure-bois-h-railler--([0-9]+).html$ /fr/salle-a-manger-structure-bois-h-railler--$1.html
+
+RedirectMatch 301 ^/fr/fauteuil-super-gamer-([0-9]+).html$ /fr/fauteuil-super-gamer-$1.html
+
+RedirectMatch 301 ^/fr/table-tv-ciello-([0-9]+).html$ /fr/table-tv-ciello-$1.html
+
+RedirectMatch 301 ^/fr/chaise-luxembourg-avec-accoudoir--([0-9]+).html$ /fr/chaise-luxembourg-avec-accoudoir--$1.html
+
+RedirectMatch 301 ^/fr/chaise-bird2--([0-9]+).html$ /fr/chaise-bird2--$1.html
+
+RedirectMatch 301 ^/fr/colonne-de-rangement--([0-9]+).html$ /fr/colonne-de-rangement--$1.html
+
+RedirectMatch 301 ^/fr/astro-3-portes-tiroirs-([0-9]+).html$ /fr/astro-3-portes-tiroirs-$1.html
+
+RedirectMatch 301 ^/fr/chaise-visiteur-monaco--([0-9]+).html$ /fr/chaise-visiteur-monaco--$1.html
+
+RedirectMatch 301 ^/fr/chaise-directeur-monaco--([0-9]+).html$ /fr/chaise-directeur-monaco--$1.html
+
+RedirectMatch 301 ^/fr/argentiere-2-porte-tiroir--([0-9]+).html$ /fr/argentiere-2-porte-tiroir--$1.html
+
+RedirectMatch 301 ^/fr/chaise-ergo-sans-accoudoir--([0-9]+).html$ /fr/chaise-ergo-sans-accoudoir--$1.html
+
+RedirectMatch 301 ^/fr/chaise-ergonomique--([0-9]+).html$ /fr/chaise-ergonomique--$1.html
+
+RedirectMatch 301 ^/fr/chaise-strier--([0-9]+).html$ /fr/chaise-strier--$1.html
+
+RedirectMatch 301 ^/fr/salle-a-manger-structure-bois-model-h-8-places--([0-9]+).html$ /fr/salle-a-manger-structure-bois-model-h-8-places--$1.html
+
+RedirectMatch 301 ^/fr/salle-a-manger-structure-bois-siege-et-dos-garnis-4-places--([0-9]+).html$ /fr/salle-a-manger-structure-bois-siege-et-dos-garnis-4-places--$1.html
+
+RedirectMatch 301 ^/fr/sejour-de-coin-6-places-complet--([0-9]+).html$ /fr/sejour-de-coin-6-places-complet--$1.html
+
+RedirectMatch 301 ^/fr/banquette-bois-massif-model-patte-de-chat--([0-9]+).html$ /fr/banquette-bois-massif-model-patte-de-chat--$1.html
+
+RedirectMatch 301 ^/fr/banquette-bois-massif-model-pencher-([0-9]+).html$ /fr/banquette-bois-massif-model-pencher-$1.html
+
+RedirectMatch 301 ^/fr/bureau-de-direction-zephyr-([0-9]+).html$ /fr/bureau-de-direction-zephyr-$1.html
+
+RedirectMatch 301 ^/fr/bureau-gary--([0-9]+).html$ /fr/bureau-gary--$1.html
+
+RedirectMatch 301 ^/fr/bureau-miri--([0-9]+).html$ /fr/bureau-miri--$1.html
+
+RedirectMatch 301 ^/fr/table-refectoire-avec-banquette-([0-9]+).html$ /fr/table-refectoire-avec-banquette-$1.html
+
+RedirectMatch 301 ^/fr/chaise-luna-([0-9]+).html$ /fr/chaise-luna-$1.html
+
+RedirectMatch 301 ^/fr/chaise-luna-sans-accoudoir--([0-9]+).html$ /fr/chaise-luna-sans-accoudoir--$1.html
+
+RedirectMatch 301 ^/fr/porte-chaussure-eco-([0-9]+).html$ /fr/porte-chaussure-eco-$1.html
+
+RedirectMatch 301 ^/fr/chaise-peinture-assise-cpl--([0-9]+).html$ /fr/chaise-peinture-assise-cpl--$1.html
+
+RedirectMatch 301 ^/fr/porte-chaussure-colonne-ayko-([0-9]+).html$ /fr/porte-chaussure-colonne-ayko-$1.html
+
+RedirectMatch 301 ^/fr/porte-chaussure-moderne-gm2-([0-9]+).html$ /fr/porte-chaussure-moderne-gm2-$1.html
+
+RedirectMatch 301 ^/fr/table-race-emailler-vitree--([0-9]+).html$ /fr/table-race-emailler-vitree--$1.html
+
+RedirectMatch 301 ^/fr/porte-chaussure-coulissant--([0-9]+).html$ /fr/porte-chaussure-coulissant--$1.html
+
+RedirectMatch 301 ^/fr/meuble-d-entree-suspendu-pvc-([0-9]+).html$ /fr/meuble-d-entree-suspendu-pvc-$1.html
+
+RedirectMatch 301 ^/fr/meubles-d-entree-queen-([0-9]+).html$ /fr/meubles-d-entree-queen-$1.html
+
+
+
+RedirectMatch 301 ^/fr/astro-2-portes-tiroirs-([0-9]+).html$ /fr/astro-2-portes-tiroirs-$1.html
+
+RedirectMatch 301 ^/fr/chambre-a-coucher-tokyo-([0-9]+).html$ /fr/chambre-a-coucher-tokyo-$1.html
+
+
+
+RedirectMatch 301 ^/fr/salle-a-manger-structure-bois-model-h-4-p-([0-9]+).html$ /fr/salle-a-manger-structure-bois-model-h-4-p-$1.html
+
+
+
+RedirectMatch 301 ^/fr/chambre-denfant-azur-([0-9]+).html$ /fr/chambre-denfant-azur-$1.html
+
+RedirectMatch 301 ^/fr/chambre-d-enfant-havana-([0-9]+).html$ /fr/chambre-d-enfant-havana-$1.html
+
+RedirectMatch 301 ^/fr/chambre-d-enfant-celina-([0-9]+).html$ /fr/chambre-d-enfant-celina-$1.html
+
+
+RedirectMatch 301 ^/fr/table-plateau-werzalit-([0-9]+).html$ /fr/table-plateau-werzalit-$1.html
+
+
+
+
+
+RedirectMatch 301 ^/fr/chaise-new-confort--([0-9]+).html$ /fr/chaise-new-confort--$1.html
+
+RedirectMatch 301 ^/fr/chambre-a-coucher-larix-([0-9]+).html$ /fr/chambre-a-coucher-larix-$1.html
+
+RedirectMatch 301 ^/fr/table-haute--([0-9]+).html$ /fr/table-haute--$1.html
+
+RedirectMatch 301 ^/fr/chaise-piccolo-([0-9]+).html$ /fr/chaise-piccolo-$1.html
+
+RedirectMatch 301 ^/fr/rangement-box-([0-9]+).html$ /fr/rangement-box-$1.html
+
+RedirectMatch 301 ^/fr/rangement-box-complet-([0-9]+).html$ /fr/rangement-box-complet-$1.html
+
+
+RedirectMatch 301 ^/fr/rangement-box-petit-model-([0-9]+).html$ /fr/rangement-box-petit-model-$1.html
+
+RedirectMatch 301 ^/fr/rangement-box-moyen-model-([0-9]+).html$ /fr/rangement-box-moyen-model-$1.html
+
+RedirectMatch 301 ^/fr/bureau-celina-avec-niche-([0-9]+).html$ /fr/bureau-celina-avec-niche-$1.html
+
+RedirectMatch 301 ^/fr/bip-roulant--([0-9]+).html$ /fr/bip-roulant--$1.html
+
+RedirectMatch 301 ^/fr/table-vintage-([0-9]+).html$ /fr/table-vintage-$1.html
+
+RedirectMatch 301 ^/fr/table-triplex--([0-9]+).html$ /fr/table-triplex--$1.html
+
+RedirectMatch 301 ^/fr/chaise-smugs-([0-9]+).html$ /fr/chaise-smugs-$1.html
+
+RedirectMatch 301 ^/fr/chaise-cuba-([0-9]+).html$ /fr/chaise-cuba-$1.html
+
+RedirectMatch 301 ^/fr/chaise-legends-([0-9]+).html$ /fr/chaise-legends-$1.html
+
+
+RedirectMatch 301 ^/fr/fauteuil-elegance-([0-9]+).html$ /fr/fauteuil-elegance-$1.html
+
+RedirectMatch 301 ^/fr/table-basse-selvia-([0-9]+).html$ /fr/table-basse-selvia-$1.html
+
+RedirectMatch 301 ^/fr/table-basse-rectangulaire-blenz-([0-9]+).html$ /fr/table-basse-rectangulaire-blenz-$1.html
+
+RedirectMatch 301 ^/fr/table-basse-rectangulaire-acajou-([0-9]+).html$ /fr/table-basse-rectangulaire-acajou-$1.html
+
+
+RedirectMatch 301 ^/fr/element-de-cuisine-bas-1porte-1-tiroir-([0-9]+).html$ /fr/element-de-cuisine-bas-1porte-1-tiroir-$1.html
+
+RedirectMatch 301 ^/fr/bureau-pero-([0-9]+).html$ /fr/bureau-pero-$1.html
+
+RedirectMatch 301 ^/fr/bureau-havana-([0-9]+).html$ /fr/bureau-havana-$1.html
+
+RedirectMatch 301 ^/fr/chaise-new-tizano-([0-9]+).html$ /fr/chaise-new-tizano-$1.html
+
+RedirectMatch 301 ^/fr/-oreiller-polycoton-70-x-50-cm-850-gr--([0-9]+).html$ /fr/-oreiller-polycoton-70-x-50-cm-850-gr--$1.html
+
+RedirectMatch 301 ^/fr/fauteuil-de-bureau-ergonomique-a-dossier-rembourre-([0-9]+).html$ /fr/fauteuil-de-bureau-ergonomique-a-dossier-rembourre-$1.html
+
+RedirectMatch 301 ^/fr/chaise-metallica--([0-9]+).html$ /fr/chaise-metallica--$1.html
+
+RedirectMatch 301 ^/fr/salon-de-jardin-syphax-4-places-([0-9]+).html$ /fr/salon-de-jardin-syphax-4-places-$1.html
+
+
+
+RedirectMatch 301 ^/fr/bureau-sigma-avec-retour-([0-9]+).html$ /fr/bureau-sigma-avec-retour-$1.html
+
+RedirectMatch 301 ^/fr/bureau-facade-high-gloss-a-2-tiroirs-([0-9]+).html$ /fr/bureau-facade-high-gloss-a-2-tiroirs-$1.html
+
+RedirectMatch 301 ^/fr/bureau-facade-high-gloss-a-3-tiroirs-([0-9]+).html$ /fr/bureau-facade-high-gloss-a-3-tiroirs-$1.html
+
+RedirectMatch 301 ^/fr/banquette-bois-blenz-model-arabesque--([0-9]+).html$ /fr/banquette-bois-blenz-model-arabesque--$1.html
+
+RedirectMatch 301 ^/fr/chambre-a-coucher-kinda-([0-9]+).html$ /fr/chambre-a-coucher-kinda-$1.html
+
+
+
+RedirectMatch 301 ^/fr/chambre-d-enfant-tiago-bleu-([0-9]+).html$ /fr/chambre-d-enfant-tiago-bleu-$1.html
+
+RedirectMatch 301 ^/fr/salle-a-manger-violette-6-places-([0-9]+).html$ /fr/salle-a-manger-violette-6-places-$1.html
+
+
+RedirectMatch 301 ^/fr/chambre-d-enfant-oscar-([0-9]+).html$ /fr/chambre-d-enfant-oscar-$1.html
+
+RedirectMatch 301 ^/fr/salle-a-manger-structure-bois-model-capitonner-matelasse-6-p-([0-9]+).html$ /fr/salle-a-manger-structure-bois-model-capitonner-matelasse-6-p-$1.html
+
+
+
+
+
+
+
+
+RedirectMatch 301 ^/fr/-chaise-de-bureau-sedan-hd-([0-9]+).html$ /fr/-chaise-de-bureau-sedan-hd-$1.html
+
+
+RedirectMatch 301 ^/fr/chaise-directeur-dark-mesh-([0-9]+).html$ /fr/chaise-directeur-dark-mesh-$1.html
+
+RedirectMatch 301 ^/fr/chaise-atlas-mesh-avec-tetiere-([0-9]+).html$ /fr/chaise-atlas-mesh-avec-tetiere-$1.html
+
+RedirectMatch 301 ^/fr/-chaise-de-bureau-ariel-mesh-([0-9]+).html$ /fr/-chaise-de-bureau-ariel-mesh-$1.html
+
+
+
+
+
+
+
+
+
+
+RedirectMatch 301 ^/fr/table-a-manger-gold-bois-blenz-([0-9]+).html$ /fr/table-a-manger-gold-bois-blenz-$1.html
+
+
+
+RedirectMatch 301 ^/fr/table-race-pvc-([0-9]+).html$ /fr/table-race-pvc-$1.html
+
+
+
+RedirectMatch 301 ^/fr/chambre-a-coucher-adele-([0-9]+).html$ /fr/chambre-a-coucher-adele-$1.html
+
+RedirectMatch 301 ^/fr/chambre-a-coucher-alliance-([0-9]+).html$ /fr/chambre-a-coucher-alliance-$1.html
+
+RedirectMatch 301 ^/fr/argentiere-ozzio-2-portes-([0-9]+).html$ /fr/argentiere-ozzio-2-portes-$1.html
+
+
+
+
+
+RedirectMatch 301 ^/fr/chaise-gm-piccolo-([0-9]+).html$ /fr/chaise-gm-piccolo-$1.html
+
+
+
+RedirectMatch 301 ^/fr/chaise-salle-de-fete-confortable-hilton-([0-9]+).html$ /fr/chaise-salle-de-fete-confortable-hilton-$1.html
+
+
+
+
+RedirectMatch 301 ^/fr/salle-a-manger-royal-bois-blenz-6-places-([0-9]+).html$ /fr/salle-a-manger-royal-bois-blenz-6-places-$1.html
+
+RedirectMatch 301 ^/fr/chaise-techno-hd-avec-accoudoirs-([0-9]+).html$ /fr/chaise-techno-hd-avec-accoudoirs-$1.html
+
+RedirectMatch 301 ^/fr/chaise-directeur-seoul-([0-9]+).html$ /fr/chaise-directeur-seoul-$1.html
+
+
+RedirectMatch 301 ^/fr/porte-chaussures-ayos-pm-([0-9]+).html$ /fr/porte-chaussures-ayos-pm-$1.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RedirectMatch 301 ^/fr/fauteuil-de-bureau-hd-ergonomique-tetiere-([0-9]+).html$ /fr/fauteuil-de-bureau-hd-ergonomique-tetiere-$1.html
+
+
+
+
+RedirectMatch 301 ^/fr/chambre-a-coucher-eco-([0-9]+).html$ /fr/chambre-a-coucher-eco-$1.html
+
+
+
+
+
+
+RedirectMatch 301 ^/fr/chaise-banquette-visiteur-([0-9]+).html$ /fr/chaise-banquette-visiteur-$1.html
+
+
+RedirectMatch 301 ^/fr/bureau-crystal--([0-9]+).html$ /fr/bureau-crystal--$1.html
+
+RedirectMatch 301 ^/fr/bureau-x-time-plateau-en-stratifier-ep-20-mm-pieds-en-structure-metallique-epoxy-blanc-([0-9]+).html$ /fr/bureau-x-time-plateau-en-stratifier-ep-20-mm-pieds-en-structure-metallique-epoxy-blanc-$1.html
+
+RedirectMatch 301 ^/fr/bureau-carre--([0-9]+).html$ /fr/bureau-carre--$1.html
+
+RedirectMatch 301 ^/fr/retour-x-time-plateau-en-stratifier-([0-9]+).html$ /fr/retour-x-time-plateau-en-stratifier-$1.html
+
+
+
+RedirectMatch 301 ^/fr/classeur-stratifier-a-4-tiroirs-h1330-l450-p620-([0-9]+).html$ /fr/classeur-stratifier-a-4-tiroirs-h1330-l450-p620-$1.html
+
+RedirectMatch 301 ^/fr/armoire-basse-avec-2-portes-fermees-([0-9]+).html$ /fr/armoire-basse-avec-2-portes-fermees-$1.html
+
+RedirectMatch 301 ^/fr/chaise-focus-([0-9]+).html$ /fr/chaise-focus-$1.html
+
+RedirectMatch 301 ^/fr/chaise-atlanta-([0-9]+).html$ /fr/chaise-atlanta-$1.html
+
+
+
+RedirectMatch 301 ^/fr/rangement-5-etages-([0-9]+).html$ /fr/rangement-5-etages-$1.html
+
+
+
+
+RedirectMatch 301 ^/fr/chaise-attente-iso-1-place-roulant-([0-9]+).html$ /fr/chaise-attente-iso-1-place-roulant-$1.html
+
+
+RedirectMatch 301 ^/fr/table-brooklyn-16080--([0-9]+).html$ /fr/table-brooklyn-16080--$1.html
+
+RedirectMatch 301 ^/fr/pied-de-chaise-de-bureau-nylon-noir-diametre-64-cm-([0-9]+).html$ /fr/pied-de-chaise-de-bureau-nylon-noir-diametre-64-cm-$1.html
+
+RedirectMatch 301 ^/fr/verin-de-rechange-pour-chaise-de-bureau-([0-9]+).html$ /fr/verin-de-rechange-pour-chaise-de-bureau-$1.html
+
+
+
+
+
+
+
+
+
+RedirectMatch 301 ^/fr/chaise-direction-levo--([0-9]+).html$ /fr/chaise-direction-levo--$1.html
+
+RedirectMatch 301 ^/fr/chaise-vega-avec-tetiere-([0-9]+).html$ /fr/chaise-vega-avec-tetiere-$1.html
+
+
+
+</IfModule>

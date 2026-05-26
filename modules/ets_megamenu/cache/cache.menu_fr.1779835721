@@ -1,0 +1,47 @@
+    <ul class="mm_menus_ul">
+        <li class="close_menu">
+            <div class="pull-left">
+                <span class="mm_menus_back">
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                </span>
+                Menu
+                
+            </div>
+            <div class="pull-right">
+                <span class="mm_menus_back_icon"></span>
+                Back
+            </div>
+        </li>
+                    <li  class="mm_menus_li home_layout_menu mm_sub_align_left ">
+                <a href="http://meuble2.localhost/">
+                    Accueil
+                                    </a>
+                                     
+            </li>
+                    <li  class="mm_menus_li  mm_sub_align_full ">
+                <a href="/promotions">
+                    Nos promotions
+                                    </a>
+                                     
+            </li>
+                    <li  class="mm_menus_li  mm_sub_align_full ">
+                <a href="/nouveaux-produits">
+                    Nouveaux produits
+                                    </a>
+                                     
+            </li>
+                    <li  class="mm_menus_li  mm_sub_align_full ">
+                <a href="http://meuble2.localhost/content/6-nos-ateliers">
+                    Nos Ateliers
+                                    </a>
+                                     
+            </li>
+                    <li  class="mm_menus_li contact_menu mm_sub_align_left ">
+                <a href="http://meuble2.localhost/contact">
+                    Contact
+                                    </a>
+                                     
+            </li>
+            </ul>

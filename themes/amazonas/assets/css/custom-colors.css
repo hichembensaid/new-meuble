@@ -84,7 +84,7 @@ body.ybc-skin-green_1 .ybc-widget-display-home-content .ybc-widget-item-content:
 body.ybc-skin-green_1.page-my-account #content .links a:hover i,
 body.ybc-skin-green_1 .contact_link_item a:hover i,
 body.ybc-skin-green_1 .social-sharing li a:hover:before {
-    color: #70441d !important;
+    color: #e6b558 !important;
 }
 
 /* === BOUTONS === */
@@ -318,6 +318,7 @@ select:focus {
 .category-sub-menu li a:hover {
     color: #EE6751;
     border-left: 3px solid #f7c669;
+    padding-left: 10px;
 }
 
 /* === NEWSLETTER === */

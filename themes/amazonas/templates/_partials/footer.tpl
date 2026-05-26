@@ -62,3 +62,48 @@
   </div>
   <div class="scroll_top"><span>{l s='TOP' d='Shop.Theme.Actions'}</span></div>
 </div>
+
+{* Schema.org LocalBusiness — SEO Local *}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FurnitureStore",
+  "name": "L'art du meuble Radès",
+  "url": "https://www.lart-du-meuble.tn",
+  "logo": "https://www.lart-du-meuble.tn/img/logo.jpg",
+  "image": "https://www.lart-du-meuble.tn/img/logo.jpg",
+  "description": "L'art du meuble Radès : vente de meubles de maison et de bureaux en Tunisie. Chambres, salons, salles à manger, cuisines, mobilier de bureau.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Zone Industrielle Radès, Route de Tunis",
+    "addressLocality": "Radès",
+    "postalCode": "2040",
+    "addressCountry": "TN"
+  },
+  "telephone": "+216 97 603 211",
+  "email": "lart_du_meuble_rades@yahoo.fr",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "36.7624084",
+    "longitude": "10.2735652"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "08:30",
+      "closes": "18:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/lartdumeublerades"
+  ],
+  "priceRange": "TND",
+  "currenciesAccepted": "TND",
+  "paymentAccepted": "Cash, Bank Transfer",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Tunisie"
+  }
+}
+</script>

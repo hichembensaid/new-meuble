@@ -35,6 +35,23 @@
   {if $page.canonical}
     <link rel="canonical" href="{$page.canonical|escape:'html':'UTF-8'}">
   {/if}
+  {* Twitter Cards *}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{$page.meta.title|escape:'html':'UTF-8'}">
+  {if isset($page.meta.description)}
+  <meta name="twitter:description" content="{$page.meta.description|escape:'html':'UTF-8'}">
+  {/if}
+  {* Open Graph global (complété par product.tpl sur les pages produits) *}
+  {if !isset($product)}
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{$urls.current_url|escape:'html':'UTF-8'}">
+  <meta property="og:title" content="{$page.meta.title|escape:'html':'UTF-8'}">
+  <meta property="og:site_name" content="{$shop.name|escape:'html':'UTF-8'}">
+  {if isset($page.meta.description)}
+  <meta property="og:description" content="{$page.meta.description|escape:'html':'UTF-8'}">
+  {/if}
+  <meta property="og:locale" content="fr_TN">
+  {/if}
 {/block}
 
 <meta name="viewport" content="width=device-width, initial-scale=1">

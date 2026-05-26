@@ -35,14 +35,14 @@
       {if isset($tc_config.BLOCKCONTACTINFOS_ADDRESS) && $tc_config.BLOCKCONTACTINFOS_ADDRESS}
             <div>
                 <i aria-hidden="true" class="icon_pin_alt"></i>
-                {l s='Address:' d='Shop.Theme'} 
+                {l s='Adresse:' d='Shop.Theme'} 
                 {$tc_config.BLOCKCONTACTINFOS_ADDRESS|escape:'html':'UTF-8'}
             </div>
       {elseif (isset($contact_infos.address.address1) && $contact_infos.address.address1) || (isset($contact_infos.address.address2) && $contact_infos.address.address2)}
           {if $contact_infos.address.address1}
               <div>
                 <i aria-hidden="true" class="icon_pin_alt"></i>
-                {l s='Address: [1]%address1%[/1]'
+                {l s='Adresse: [1]%address1%[/1]'
                   sprintf=[
                   '[1]' => '<span>',
                   '[/1]' => '</span>',
@@ -69,7 +69,7 @@
         {if isset($contact_infos.address.formatted) && $contact_infos.address.formatted}
             <div>
                 <i aria-hidden="true" class="icon_pin_alt"></i>
-                {l s='Address: [1]%address%[/1]'
+                {l s='Adresse: [1]%address%[/1]'
                   sprintf=[
                   '[1]' => '<span>',
                   '[/1]' => '</span>',

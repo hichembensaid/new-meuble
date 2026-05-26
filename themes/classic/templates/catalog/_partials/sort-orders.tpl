@@ -23,16 +23,16 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
 
-<span class="col-sm-3 col-md-3 hidden-sm-down sort-by">{l s='Sort by:' d='Shop.Theme.Global'}</span>
+<span class="col-sm-3 col-md-3 hidden-sm-down sort-by">{l s='Trier par:' d='Shop.Theme.Global'}</span>
 <div class="{if !empty($listing.rendered_facets)}col-sm-9 col-xs-8{else}col-sm-12 col-xs-12{/if} col-md-9 products-sort-order dropdown">
   <button
     class="btn-unstyle select-title"
     rel="nofollow"
     data-toggle="dropdown"
-    aria-label="{l s='Sort by selection' d='Shop.Theme.Global'}"
+    aria-label="{l s='Trier par sélection' d='Shop.Theme.Global'}"
     aria-haspopup="true"
     aria-expanded="false">
-    {if $listing.sort_selected}{$listing.sort_selected}{else}{l s='Select' d='Shop.Theme.Actions'}{/if}
+    {if $listing.sort_selected}{$listing.sort_selected}{else}{l s='Sélectionner' d='Shop.Theme.Actions'}{/if}
     <i class="material-icons float-xs-right">&#xE5C5;</i>
   </button>
   <div class="dropdown-menu">

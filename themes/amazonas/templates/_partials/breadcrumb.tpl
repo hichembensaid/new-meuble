@@ -20,6 +20,23 @@
 *}
 
 {if $page.page_name != 'index'}
+{* JSON-LD BreadcrumbList - recommande par Google *}
+<script type="application/ld+json">
+{ldelim}
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {foreach from=$breadcrumb.links item=path name=bc}
+    {ldelim}
+      "@type": "ListItem",
+      "position": {$smarty.foreach.bc.iteration},
+      "name": "{$path.title|escape:'javascript':'UTF-8'}",
+      "item": "{$path.url|escape:'javascript':'UTF-8'}"
+    {rdelim}{if !$smarty.foreach.bc.last},{/if}
+    {/foreach}
+  ]
+{rdelim}
+</script>
 <div class="breadcrumb_wrapper" data-depth="{$breadcrumb.count|escape:'html':'UTF-8'}">
     <div class="container">
         <nav data-depth="{$breadcrumb.count|escape:'html':'UTF-8'}" class="breadcrumb">

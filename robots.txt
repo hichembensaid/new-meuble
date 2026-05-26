@@ -97,3 +97,6 @@ Disallow: /commande
 Disallow: /recherche
 Disallow: /suivi-commande-invite
 Disallow: /confirmation-commande
+
+# Sitemap
+Sitemap: https://www.lart-du-meuble.tn/fr/sitemap.xml

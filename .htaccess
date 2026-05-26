@@ -77,3 +77,60 @@ AddType font/woff2 .woff2
 ErrorDocument 404 /index.php?controller=404
 
 # ~~end~~ Do not remove this comment, Prestashop will keep automatically the code outside this comment when .htaccess will be generated again
+
+# ====================================================
+# OPTIMISATIONS PERFORMANCE — hors bloc PrestaShop
+# ====================================================
+
+# --- Compression GZIP/Deflate ---
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript
+    AddOutputFilterByType DEFLATE application/json application/xml application/xhtml+xml
+    AddOutputFilterByType DEFLATE image/svg+xml font/ttf font/otf application/font-woff application/font-woff2
+</IfModule>
+
+# --- Cache navigateur (Expires headers) ---
+<IfModule mod_expires.c>
+    ExpiresActive On
+    # Images
+    ExpiresByType image/jpg  "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png  "access plus 1 year"
+    ExpiresByType image/gif  "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    # Fonts
+    ExpiresByType font/ttf   "access plus 1 year"
+    ExpiresByType font/otf   "access plus 1 year"
+    ExpiresByType font/woff  "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff  "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    # CSS & JS
+    ExpiresByType text/css              "access plus 1 month"
+    ExpiresByType text/javascript       "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    # HTML
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# --- Cache-Control headers ---
+<IfModule mod_headers.c>
+    # Ressources statiques longue durée
+    <FilesMatch "\.(ico|jpg|jpeg|png|gif|webp|svg|woff|woff2|ttf|otf)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+    # Désactiver ETag (évite double validation)
+    Header unset ETag
+</IfModule>
+FileETag None
+
+# --- Keep-Alive ---
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>

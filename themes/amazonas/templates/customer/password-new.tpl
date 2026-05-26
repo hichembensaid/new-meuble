@@ -30,11 +30,11 @@
       <section class="form-fields">
 
         <label>
-          <span>{l s='Email address: %email%' d='Shop.Theme.CustomerAccount' sprintf=['%email%' => $customer_email|stripslashes]}</span>
+          <span>{l s='Email adresse: %email%' d='Shop.Theme.CustomerAccount' sprintf=['%email%' => $customer_email|stripslashes]}</span>
         </label>
 
         <label>
-          <span>{l s='New password' d='Shop.Forms.Labels'}</span>
+          <span>{l s='Nouveau mot de passe' d='Shop.Forms.Labels'}</span>
           <input type="password" data-validate="isPasswd" name="passwd" value="">
         </label>
 

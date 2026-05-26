@@ -21,6 +21,8 @@ console.log('[QuickOrder] JS charge OK');
         bindTriggerButton();
         bindSubmitButton();
         bindModalReset();
+        var form = document.querySelector(FORM_ID);
+        if (form) bindLiveValidation(form);
     });
 
     function bindTriggerButton() {
@@ -100,7 +102,11 @@ console.log('[QuickOrder] JS charge OK');
             if (!form) { console.error('[QuickOrder] Formulaire introuvable'); return; }
             clearAlert();
             var errors = validateForm(form);
-            if (errors.length) { showAlert('danger', errors.join('<br>')); return; }
+            if (errors.length) {
+                showAlert('danger', '<strong>Veuillez corriger les champs suivants :</strong><ul class="mb-0 mt-1">' +
+                    errors.map(function (e) { return '<li>' + e + '</li>'; }).join('') + '</ul>');
+                return;
+            }
             submitOrder(form, btn);
         });
     }
@@ -154,22 +160,96 @@ console.log('[QuickOrder] JS charge OK');
         .catch(function (err) { setLoading(btn, false); showAlert('danger', 'Erreur reseau: ' + err.message); });
     }
 
+    /* ── Règles de validation centralisées ─────────────────────────────────── */
+    var FIELD_RULES = [
+        {
+            name:    'firstname',
+            label:   'Prénom',
+            test:    function (v) { return v.trim().length >= 2; },
+            msg:     'Veuillez saisir votre prénom (min. 2 caractères).'
+        },
+        {
+            name:    'lastname',
+            label:   'Nom',
+            test:    function (v) { return v.trim().length >= 2; },
+            msg:     'Veuillez saisir votre nom de famille (min. 2 caractères).'
+        },
+        {
+            name:    'phone',
+            label:   'Téléphone',
+            test:    function (v) { return PHONE_REGEX.test(v.trim()); },
+            msg:     'Numéro de téléphone invalide (ex : 98 000 000).'
+        },
+        {
+            name:    'address1',
+            label:   'Adresse',
+            test:    function (v) { return v.trim().length >= 5; },
+            msg:     'Veuillez saisir votre adresse de livraison complète.'
+        },
+        {
+            name:    'city',
+            label:   'Ville',
+            test:    function (v) { return v.trim().length > 0; },
+            msg:     'Veuillez indiquer votre ville.'
+        },
+        {
+            name:    'postcode',
+            label:   'Code postal',
+            test:    function (v) { return v.trim().length > 0; },
+            msg:     'Veuillez saisir votre code postal.'
+        }
+    ];
+
     function validateForm(form) {
         var errors = [];
         clearFieldErrors(form);
-        var f = form.querySelector('[name="firstname"]');
-        var l = form.querySelector('[name="lastname"]');
-        var p = form.querySelector('[name="phone"]');
-        var a = form.querySelector('[name="address1"]');
-        var c = form.querySelector('[name="city"]');
-        var z = form.querySelector('[name="postcode"]');
-        if (!f || f.value.trim().length < 2) { if (f) setFieldError(f, 'Prenom requis.'); errors.push('Prenom.'); }
-        if (!l || l.value.trim().length < 2) { if (l) setFieldError(l, 'Nom requis.'); errors.push('Nom.'); }
-        if (!p || !PHONE_REGEX.test(p.value.trim())) { if (p) setFieldError(p, 'Telephone invalide.'); errors.push('Tel.'); }
-        if (!a || a.value.trim().length < 5) { if (a) setFieldError(a, 'Adresse requise.'); errors.push('Adresse.'); }
-        if (!c || !c.value.trim()) { if (c) setFieldError(c, 'Ville requise.'); errors.push('Ville.'); }
-        if (!z || !z.value.trim()) { if (z) setFieldError(z, 'Code postal requis.'); errors.push('CP.'); }
+        FIELD_RULES.forEach(function (rule) {
+            var input = form.querySelector('[name="' + rule.name + '"]');
+            if (!input || !rule.test(input.value)) {
+                if (input) setFieldError(input, rule.msg);
+                errors.push('<strong>' + rule.label + '</strong> — ' + rule.msg);
+            }
+        });
         return errors;
+    }
+
+    /* ── Validation en temps réel : mise à jour de l'alerte au fur et à mesure ─ */
+    function bindLiveValidation(form) {
+        FIELD_RULES.forEach(function (rule) {
+            var input = form.querySelector('[name="' + rule.name + '"]');
+            if (!input) return;
+            input.addEventListener('input', function () { refreshAlert(form); });
+            input.addEventListener('change', function () { refreshAlert(form); });
+        });
+    }
+
+    function refreshAlert(form) {
+        /* Ne rien faire si l'alerte n'est pas visible (pas encore soumis) */
+        var alertEl = document.querySelector(ALERT_ID);
+        if (!alertEl || alertEl.style.display === 'none') return;
+        /* Recalculer les erreurs restantes sans ré-afficher les invalid-feedback déjà visibles */
+        var remaining = [];
+        FIELD_RULES.forEach(function (rule) {
+            var input = form.querySelector('[name="' + rule.name + '"]');
+            if (!input) return;
+            if (!rule.test(input.value)) {
+                remaining.push('<strong>' + rule.label + '</strong> — ' + rule.msg);
+                input.classList.add('is-invalid');
+                var fb = input.nextElementSibling;
+                if (fb && fb.classList.contains('invalid-feedback')) fb.textContent = rule.msg;
+            } else {
+                input.classList.remove('is-invalid');
+                input.classList.add('is-valid');
+                var fb2 = input.nextElementSibling;
+                if (fb2 && fb2.classList.contains('invalid-feedback')) fb2.textContent = '';
+            }
+        });
+        if (remaining.length === 0) {
+            clearAlert();
+        } else {
+            showAlert('danger', '<strong>Veuillez corriger les champs suivants :</strong><ul class="mb-0 mt-1">' +
+                remaining.map(function (e) { return '<li>' + e + '</li>'; }).join('') + '</ul>');
+        }
     }
 
     function setFieldError(input, msg) {

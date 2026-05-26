@@ -23,7 +23,7 @@
   {if isset($tc_config.BLOCKCONTACTINFOS_ADDRESS) && $tc_config.BLOCKCONTACTINFOS_ADDRESS}
             <div class="block">
                 <div class="icon"><i class="material-icons">place</i></div>
-                <div class="data">{l s='Address:' d='Shop.Theme'}<br />
+                <div class="data">{l s='Adresse:' d='Shop.Theme'}<br />
                 {$tc_config.BLOCKCONTACTINFOS_ADDRESS|escape:'html':'UTF-8'}</div>
             </div>
       {elseif (isset($contact_infos.address.address1) && $contact_infos.address.address1) || (isset($contact_infos.address.address2) && $contact_infos.address.address2)}
@@ -31,7 +31,7 @@
               <div class="block">
                 <div class="icon"><i class="material-icons">place</i></div>
                 <div class="data">
-                    {l s='Address:' d='Shop.Theme'}<br />
+                    {l s='Adresse:' d='Shop.Theme'}<br />
                     {$contact_infos.address.address1|escape:'html':'UTF-8'}
                 </div>
               </div>
@@ -40,7 +40,7 @@
               <div class="block">
                 <div class="icon"><i class="material-icons">place</i></div>
                 <div class="data">
-                    {l s='Address:' d='Shop.Theme'}<br />
+                    {l s='Adresse:' d='Shop.Theme'}<br />
                     {$contact_infos.address.address2|escape:'html':'UTF-8'}
                 </div>
               </div>
@@ -50,7 +50,7 @@
             <div class="block">
                 <div class="icon"><i class="material-icons">place</i></div>
                 <div class="data">
-                    {l s='Address:' d='Shop.Theme' }<br />
+                    {l s='Adresse:' d='Shop.Theme' }<br />
                     {$contact_infos.address.formatted|escape:'html':'UTF-8'}
                 </div>
               </div>
@@ -63,7 +63,7 @@
     <div class="block">
       <div class="icon"><i class="material-icons">local_phone</i></div>
       <div class="data">
-        {l s='Call us:' d='Shop.Theme'}<br/>
+        {l s='Nous appeler:' d='Shop.Theme'}<br/>
         <a href="tel:{$tc_config.BLOCKCONTACTINFOS_PHONE_CALL|escape:'html':'UTF-8'}">{$tc_config.BLOCKCONTACTINFOS_PHONE_LABEL|escape:'html':'UTF-8'}</a>
        </div>
     </div>
@@ -85,7 +85,7 @@
     <div class="block">
       <div class="icon"><i class="material-icons">mail_outline</i></div>
       <div class="data email">
-        {l s='Email us:' d='Shop.Theme'}<br/>
+        {l s='Nous envoyer un email:' d='Shop.Theme'}<br/>
         <a href="mailto:{$contact_infos.email|escape:'html':'UTF-8'}">{$contact_infos.email|escape:'html':'UTF-8'}</a>
        </div>
     </div>

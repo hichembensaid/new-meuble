@@ -10112,18 +10112,32 @@ body#checkout #gift_message {
   top: 50%;
   transform: translateY(-50%);
 }
+.block-contact #contact_footer > div,
+.block-contact #contact_footer > div > a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #f7c669;
+}
+.block-contact #contact_footer > div > a {
+  color: #f7c669;
+  text-decoration: none;
+}
 .block-contact #contact_footer i {
   border: 1px solid #f7c669;
   color: #f7c669;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   font-size: 16px;
   height: 27px;
   line-height: 24px;
-  margin-bottom: 12px;
-  margin-right: 10px;
-  position: relative;
+  margin-bottom: 0;
+  margin-right: 0;
   text-align: center;
   width: 27px;
+  margin-top: 2px;
 }
 .caption_content {
   border-right: 4px solid #D4D4D4;
@@ -10711,7 +10725,7 @@ body#checkout #gift_message {
 .block-categories-custom .category-sub-menu > li {
   float: left;
   position: relative;
-  width: 100%;
+  width: 245px;
 }
 .category-sub-menu .navbar-toggler,
 .category-sub-menu  .arrows{
@@ -12805,6 +12819,10 @@ li.product-flag.discount {
 .block-contact {
   color: #333333;
   line-height: 26px;
+  max-width: 30%;
+}
+.block-contact div {
+  line-height: 26px;
 }
 #footer p {
   color: #333333;
@@ -12873,6 +12891,7 @@ li.product-flag.discount {
   margin-top: 5px;
   padding-left: 18px;
   position: relative;
+  display: none;
 }
 .wishtlist_top::before {
   background-color: #e7e7e7;
@@ -14864,6 +14883,7 @@ li {
         line-height: 50px;
         margin-top: 0;
         margin-left: 10px;
+        display: none;
     }
     #_desktop_cart {
       margin-top: 0;

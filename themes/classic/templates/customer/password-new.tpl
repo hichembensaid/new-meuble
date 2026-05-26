@@ -46,7 +46,7 @@
 
         <div class="email">
           {l
-            s='Email address: %email%'
+            s='Email adresse: %email%'
             d='Shop.Theme.Customeraccount'
             sprintf=['%email%' => $customer_email|stripslashes]}
         </div>
