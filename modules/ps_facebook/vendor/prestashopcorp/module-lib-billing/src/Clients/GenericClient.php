@@ -134,9 +134,11 @@ abstract class GenericClient
 
             $clientParams = [
                 'base_url' => $this->getClientUrl(),
+                'verify' => false,
                 'defaults' => [
                     'timeout' => $this->getTimeout(),
                     'exceptions' => $this->getCatchExceptions(),
+                    'verify' => false,
                     'headers' => [
                         'Accept' => 'application/json',
                         'Authorization' => 'Bearer ' . (string) $token,

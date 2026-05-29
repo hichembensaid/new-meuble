@@ -28,6 +28,7 @@
 <link rel="stylesheet" href="{$urls.css_url|escape:'html':'UTF-8'}font-elegant.css" type="text/css" media="all" />
 <link rel="stylesheet" href="{$urls.css_url|escape:'html':'UTF-8'}mobile-menu-clean.css" type="text/css" media="all" />
 <link rel="stylesheet" href="{$urls.css_url|escape:'html':'UTF-8'}custom-colors.css" type="text/css" media="all" />
+<link rel="stylesheet" href="{$urls.css_url|escape:'html':'UTF-8'}premium.css" type="text/css" media="all" />
 
   
 {if isset($tc_config.YBC_TC_FONT1_DATA) && $tc_config.YBC_TC_FONT1_DATA != ''}

@@ -92,8 +92,9 @@ body.ybc-skin-green_1 .social-sharing li a:hover:before {
 .button-primary,
 .add-to-cart,
 .btn.btn-primary {
-    background: linear-gradient(135deg, #f7c669 0%, #EE6751 100%) !important;
-    border-color: #f7c669 !important;
+    background: #70441d !important;
+    background-image: none !important;
+    border-color: #70441d !important;
     color: #fff !important;
 }
 
@@ -101,9 +102,10 @@ body.ybc-skin-green_1 .social-sharing li a:hover:before {
 .button-primary:hover,
 .add-to-cart:hover,
 .btn.btn-primary:hover {
-    background: linear-gradient(135deg, #e6b558 0%, #dd5640 100%) !important;
-    border-color: #e6b558 !important;
-    box-shadow: 0 4px 12px rgba(238, 103, 81, 0.4) !important;
+    background: #4a2c0f !important;
+    background-image: none !important;
+    border-color: #4a2c0f !important;
+    box-shadow: 0 4px 12px rgba(112, 68, 29, 0.35) !important;
 }
 
 /* === LIENS === */

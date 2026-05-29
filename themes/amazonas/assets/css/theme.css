@@ -10230,7 +10230,7 @@ body#checkout #gift_message {
 }
 #products .thumbnail-container, .featured-products .thumbnail-container, .product-accessories .thumbnail-container {
   background: white none repeat scroll 0 0;
-  border: 1px solid #e7e7e7;
+  border: none;
   float: left;
   margin-bottom: 2px;
   position: relative;
@@ -14360,7 +14360,7 @@ div#content.page-content.card {
   position: absolute;
   right: 15px;
   top: -2px;
-  width: 51px;
+  width: 90px;
 }
 .owl-prev {
   float: left;

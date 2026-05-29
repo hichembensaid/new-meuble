@@ -77,8 +77,8 @@
       <h3 class="block-categories-title"> Categories </h3>
       <div class="category-top-menu-pos">
         {categories_custom nodes=$categories_custom.children}
-        <span class="view view_more_cat"><span>{l s='More categories ' d='Shop.Theme'}<i class="fa fa-angle-double-down"></i></span></span>
-        <span class="view view_less_cat"><span>{l s='Less categories ' d='Shop.Theme'}<i class="fa fa-angle-double-up"></i></span></span>
+        <span class="view view_more_cat"><span>{l s='Plus de catégories ' d='Shop.Theme'}<i class="fa fa-angle-double-down"></i></span></span>
+        <span class="view view_less_cat"><span>{l s='Moins de catégories ' d='Shop.Theme'}<i class="fa fa-angle-double-up"></i></span></span>
       </div>
   </div>
 </div>
