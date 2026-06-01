@@ -759,4 +759,83 @@ function getCookie(cname) {
         }
     }
     return "";
-}  
+}
+
+// Quickview Loader
+$(document).ready(function() {
+    var quickviewLoading = false;
+    
+    // Intercepter les clics sur le bouton quick-view
+    $(document).on('click', '.quick-view', function(e) {
+        if (quickviewLoading) return;
+        quickviewLoading = true;
+        
+        console.log('[QuickView] Click detected - showing loader');
+        
+        // Créer et afficher le loader si ce n'est pas déjà fait
+        var loaderId = 'quickview-loader';
+        if (!$('#' + loaderId).length) {
+            $('body').append(
+                '<div id="' + loaderId + '" class="quickview-loader-overlay" style="display:none;">' +
+                    '<div class="quickview-spinner">' +
+                        '<div class="spinner-border" role="status">' +
+                            '<span class="sr-only">Chargement...</span>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
+            );
+        }
+        $('#' + loaderId).fadeIn(200);
+        
+        // Timeout de sécurité (30 secondes)
+        setTimeout(function() {
+            if ($('#quickview-loader').is(':visible')) {
+                console.log('[QuickView] Timeout - hiding loader after 30s');
+                $('#quickview-loader').fadeOut(300, function() {
+                    $(this).remove();
+                    quickviewLoading = false;
+                });
+            }
+        }, 30000);
+    });
+    
+    // Détecter quand le modal est ajouté au DOM
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.addedNodes.length) {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1 && node.id && node.id.indexOf('quickview-modal') === 0) {
+                        console.log('[QuickView] Modal added to DOM');
+                    }
+                });
+            }
+        });
+    });
+    observer.observe(document.body, { childList: true });
+    
+    // Masquer le loader UNIQUEMENT quand le modal est complètement affiché
+    $(document).on('shown.bs.modal', '[id^="quickview-modal"]', function() {
+        console.log('[QuickView] Modal shown - hiding loader after 500ms');
+        // Attendre que tout soit rendu
+        setTimeout(function() {
+            if ($('#quickview-loader').length) {
+                $('#quickview-loader').fadeOut(300, function() {
+                    $(this).remove();
+                    quickviewLoading = false;
+                    console.log('[QuickView] Loader hidden successfully');
+                });
+            }
+        }, 500);
+    });
+    
+    // Masquer le loader si le modal est fermé sans être ouvert
+    $(document).on('hidden.bs.modal', '[id^="quickview-modal"]', function() {
+        console.log('[QuickView] Modal hidden');
+        if ($('#quickview-loader').length) {
+            $('#quickview-loader').fadeOut(200, function() {
+                $(this).remove();
+                quickviewLoading = false;
+            });
+        }
+    });
+});

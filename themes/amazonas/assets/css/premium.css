@@ -377,15 +377,30 @@ li.product-flag.discount { background: var(--co) !important; display: inline-blo
 
 /* Nom produit */
 .product-miniature .product-title,
-.product-miniature h2.product-title {
+.product-miniature h2.product-title,
+.product-miniature h4.product-title {
   font-family: var(--serif) !important;
   font-size: 1.05rem !important; font-weight: 500 !important;
   color: var(--tx) !important; text-transform: none !important;
-  margin: 0 !important; line-height: 1.3 !important;
+  margin: 0 0 8px 0 !important; 
+  line-height: 1.4 !important;
+  min-height: 1.4em !important;
+  max-height: 1.4em !important;
+  overflow: hidden !important;
+  display: block !important;
+}
+.product-miniature .product-title a,
+.product-miniature h2.product-title a,
+.product-miniature h4.product-title a {
+  color: var(--tx) !important;
+  display: block !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  transition: color .2s ease !important;
 }
 .product-miniature:hover .product-title a,
 .product-miniature:hover .product-title { color: var(--br) !important; }
-.product-miniature .product-title a { color: var(--tx) !important; }
 
 /* Prix */
 .product-miniature .price,
@@ -400,6 +415,44 @@ li.product-flag.discount { background: var(--co) !important; display: inline-blo
 .product-miniature .old-price {
   font-size: .82rem !important; color: #aaa !important;
   text-decoration: line-through !important; font-weight: 400 !important;
+}
+
+/* Boutons d'actions produit (Voir détails + Quick view) */
+.highlighted-informations {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+}
+
+.product-details-btn,
+.quick-view {
+  width: 40px !important;
+  height: 40px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: var(--wh) !important;
+  border: 1.5px solid var(--bd) !important;
+  border-radius: var(--pill) !important;
+  color: var(--tx2) !important;
+  transition: all .2s var(--ease) !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08) !important;
+}
+
+.product-details-btn:hover,
+.quick-view:hover {
+  background: var(--br) !important;
+  border-color: var(--br) !important;
+  color: var(--wh) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(112,68,29,.25) !important;
+}
+
+.product-details-btn .material-icons,
+.quick-view .material-icons {
+  font-size: 1.1rem !important;
 }
 
 /* ================================================================
@@ -881,7 +934,7 @@ input::placeholder, textarea::placeholder { color: #bbb !important; }
   transform: none !important;
 }
 .block-contact #contact_footer a:hover { color: var(--go) !important; }
-#footer p { color: rgba(255,255,255,.62) !important; font-size: .83rem !important; }
+#footer p { color: #4a2c0f !important; font-size: .83rem !important; }
 
 /* Réseaux sociaux */
 .block-social li a, #footer .social-links a {
@@ -927,6 +980,7 @@ input::placeholder, textarea::placeholder { color: #bbb !important; }
     width: auto !important;
     flex-direction: unset !important;
     justify-content: unset !important;
+    height: 30px;
   }
   /* Flèches collapse cachées */
   .footer-container .links .title .collapse-icons,
@@ -1134,6 +1188,105 @@ input::placeholder, textarea::placeholder { color: #bbb !important; }
 @media (max-width: 480px) {
   .product-miniature .product-title { font-size: .95rem !important; }
   .product-miniature .price { font-size: .98rem !important; }
+}
+
+/* ================================================================
+   18. MASQUER BOUTON WISHLIST
+   ================================================================ */
+.wishlist-button-add,
+button.wishlist-button-add,
+.product-miniature .wishlist-button-add,
+.thumbnail-container .wishlist-button-add {
+  display: none !important;
+}
+
+/* ================================================================
+   19. FOOTER MAP - Carte Google Maps
+   ================================================================ */
+/* Masquer le module newsletter */
+.footer_top #block_newsletter,
+.footer_top .block_newsletter {
+  display: none !important;
+}
+
+/* Bloc Map */
+.footer-map-block {
+  flex: 0 0 30% !important;
+  max-width: 30% !important;
+}
+
+.footer-map-block .block-title {
+  font-family: var(--sans) !important;
+  font-size: .68rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .22em !important;
+  text-transform: uppercase !important;
+  color: var(--wh) !important;
+  margin-bottom: 20px !important;
+  padding-bottom: 10px !important;
+  border-bottom: 1px solid rgba(247,198,105,.18) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.footer-map-block .block-title .material-icons {
+  color: var(--go) !important;
+  font-size: 1.2rem !important;
+}
+
+.footer-map-block .map-address {
+  color: rgba(255,255,255,.62) !important;
+  font-size: .83rem !important;
+  line-height: 1.6 !important;
+  margin-bottom: 15px !important;
+}
+
+.footer-map-block .map-address strong {
+  color: var(--wh) !important;
+  font-weight: 600 !important;
+}
+
+.footer-map-block .map-address .material-icons {
+  color: var(--go) !important;
+  font-size: .9rem !important;
+  vertical-align: middle !important;
+  margin-right: 4px !important;
+}
+
+.footer-map-block .map-container {
+  margin-top: 15px !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.3) !important;
+}
+
+.footer-map-block .map-container iframe {
+  display: block !important;
+  width: 100% !important;
+  height: 250px !important;
+  border: none !important;
+}
+
+@media (max-width: 767px) {
+  .footer-map-block {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-top: 20px !important;
+  }
+  
+  .footer-map-block .map-container iframe {
+    height: 200px !important;
+  }
+}
+
+/* ================================================================
+   20. MASQUER COPYRIGHT THÈME
+   ================================================================ */
+.ybc_coppyright,
+.footer_bottom .ybc_coppyright,
+#footer .ybc_coppyright {
+  display: none !important;
 }
 
 /* ================================================================

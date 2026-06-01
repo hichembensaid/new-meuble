@@ -26,6 +26,21 @@ import ProductMinitature from './components/product-miniature';
 
 $(document).ready(() => {
   prestashop.on('clickQuickView', function (elm) {
+    // Afficher le loader
+    let loaderId = 'quickview-loader';
+    if (!$('#' + loaderId).length) {
+      $('body').append(`
+        <div id="${loaderId}" class="quickview-loader-overlay">
+          <div class="quickview-spinner">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Chargement...</span>
+            </div>
+          </div>
+        </div>
+      `);
+    }
+    $('#' + loaderId).fadeIn(200);
+    
     let data = {
       'action': 'quickview',
       'id_product': elm.dataset.idProduct,
@@ -34,12 +49,29 @@ $(document).ready(() => {
     $.post(prestashop.urls.pages.product, data, null, 'json').then(function (resp) {
       $('body').append(resp.quickview_html);
       let productModal = $(`#quickview-modal-${resp.product.id}-${resp.product.id_product_attribute}`);
+      
+      // Masquer le loader après que le modal soit affiché
+      productModal.on('shown.bs.modal', function() {
+        $('#' + loaderId).fadeOut(300, function() {
+          $(this).remove();
+        });
+      });
+      
       productModal.modal('show');
       productConfig(productModal);
+      
       productModal.on('hidden.bs.modal', function () {
         productModal.remove();
+        // Au cas où le loader serait encore là
+        if ($('#' + loaderId).length) {
+          $('#' + loaderId).remove();
+        }
       });
     }).fail((resp) => {
+      // Masquer le loader en cas d'erreur
+      $('#' + loaderId).fadeOut(200, function() {
+        $(this).remove();
+      });
       prestashop.emit('handleError', {eventType: 'clickQuickView', resp: resp});
     });
   });

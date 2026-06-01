@@ -36,7 +36,7 @@
     </div>
     <div class="product-description">
       {block name='product_name'}
-        <h4 class="h3 product-title" itemprop="name"><a href="{$product.url|escape:'html':'UTF-8'}">{$product.name|truncate:30:'...'}</a></h4>
+        <h4 class="h3 product-title" itemprop="name"><a href="{$product.url|escape:'html':'UTF-8'}">{$product.name|escape:'html':'UTF-8'}</a></h4>
       {/block}
       {if isset($product.description_short) && $product.description_short !=''}
         <div class="short_description">{$product.description_short|strip_tags|truncate:100:'...'}</div>
@@ -61,9 +61,12 @@
         </div>
       {/block}
       <div class="highlighted-informations{*if !$product.main_variants} no-variants{/if*}">
-         {hook h='displayProductListFunctionalButtons' product=$product}
-          <a href="#" class="quick-view" data-link-action="quickview">
+         {* Bouton Voir détails *}
+          <a href="{$product.url|escape:'html':'UTF-8'}" class="product-details-btn" title="{l s='Voir les détails' d='Shop.Theme.Actions'}">
             <i class="material-icons search">search</i>
+          </a>
+          <a href="#" class="quick-view" data-link-action="quickview">
+            <i class="material-icons">visibility</i>
           </a>
         </div>
     </div>

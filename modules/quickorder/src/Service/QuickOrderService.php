@@ -196,21 +196,73 @@ class QuickOrderService
 
         // Forcer l'autorisation hors stock sur le produit lui-même
         $product = new Product((int) $data['id_product']);
+        
+        // Vérifier si le produit existe et est valide
+        if (!\Validate::isLoadedObject($product)) {
+            throw new \RuntimeException('Produit introuvable (ID: ' . $data['id_product'] . ').');
+        }
+        
+        // Vérifier si le produit est actif
+        if (!$product->active) {
+            throw new \RuntimeException('Ce produit n\'est plus disponible.');
+        }
+        
         $previousProductOosp = $product->out_of_stock;
         if ($product->out_of_stock == 0) {
             $product->out_of_stock = 1;
             $product->save();
         }
 
+        // Vérifier si la combinaison existe (si spécifiée)
+        $idProductAttr = (int) $data['id_product_attr'];
+        if ($idProductAttr > 0) {
+            $combination = new \Combination($idProductAttr);
+            if (!\Validate::isLoadedObject($combination)) {
+                $idProductAttr = 0; // Utiliser le produit sans combinaison
+            }
+        }
+
+        // Méthode alternative plus fiable pour ajouter le produit
+        $cartProduct = [
+            'id_product' => (int) $data['id_product'],
+            'id_product_attribute' => $idProductAttr,
+            'quantity' => (int) $data['qty'],
+            'id_customization' => 0,
+        ];
+
+        // Essayer d'abord avec updateQty
         $added = $cart->updateQty(
             $data['qty'],
             (int) $data['id_product'],
-            (int) $data['id_product_attr'] ?: null,
+            $idProductAttr ?: null,
             false,
             'up',
             0,
-            new \Shop((int) $this->context->shop->id)
+            new \Shop((int) $this->context->shop->id),
+            true, // auto_add_cart_rule
+            true  // skip_quantity_check - Ignorer la vérification de stock
         );
+
+        // Si updateQty échoue, essayer avec la méthode directe
+        if (!$added) {
+            // Ajouter manuellement dans la table ps_cart_product
+            $sql = 'INSERT INTO `' . _DB_PREFIX_ . 'cart_product` 
+                    (`id_cart`, `id_product`, `id_product_attribute`, `id_shop`, `quantity`, `date_add`) 
+                    VALUES 
+                    (' . (int)$cart->id . ', ' . (int)$data['id_product'] . ', ' . (int)$idProductAttr . ', 
+                     ' . (int)$this->context->shop->id . ', ' . (int)$data['qty'] . ', NOW())
+                    ON DUPLICATE KEY UPDATE 
+                    `quantity` = `quantity` + ' . (int)$data['qty'] . ', 
+                    `date_add` = NOW()';
+            
+            $added = \Db::getInstance()->execute($sql);
+            
+            if ($added) {
+                // Rafraîchir le cache du panier
+                \Cache::clean('Cart::nbProducts_' . $cart->id . '*');
+                \Cache::clean('objectmodel_Cart_' . $cart->id . '*');
+            }
+        }
 
         // Restaurer les valeurs d'origine
         Configuration::updateValue('PS_ORDER_OUT_OF_STOCK', $previousOosp);
@@ -220,7 +272,25 @@ class QuickOrderService
         }
 
         if (!$added) {
-            throw new \RuntimeException('Impossible d\'ajouter le produit au panier.');
+            // Log détaillé pour déboguer
+            $errorMsg = 'Impossible d\'ajouter le produit au panier. ';
+            $errorMsg .= 'Produit ID: ' . $data['id_product'] . ', ';
+            $errorMsg .= 'Combinaison: ' . ($idProductAttr ?: 'aucune') . ', ';
+            $errorMsg .= 'Quantité: ' . $data['qty'] . ', ';
+            $errorMsg .= 'Panier ID: ' . $cart->id . ', ';
+            $errorMsg .= 'Produit actif: ' . ($product->active ? 'oui' : 'non') . ', ';
+            $errorMsg .= 'Stock disponible: ' . \StockAvailable::getQuantityAvailableByProduct($data['id_product'], $idProductAttr);
+            
+            PrestaShopLogger::addLog(
+                '[QuickOrder] ' . $errorMsg,
+                3,
+                null,
+                'Cart',
+                (int) $cart->id,
+                true
+            );
+            
+            throw new \RuntimeException($errorMsg);
         }
 
         // Attacher le transporteur par défaut
@@ -319,7 +389,26 @@ class QuickOrderService
 
     private function sanitizeName(string $value): string
     {
-        return pSQL(ucfirst(strtolower(trim($value))));
+        // Nettoyer et valider le nom
+        $cleaned = trim($value);
+        
+        // Si vide après trim, retourner un nom par défaut
+        if (empty($cleaned)) {
+            return 'Client';
+        }
+        
+        // Supprimer les caractères non autorisés (garder lettres, espaces, tirets, apostrophes)
+        $cleaned = preg_replace('/[^a-zA-Z\s\-\'àâäéèêëïîôöùûüÿçÀÂÄÉÈÊËÏÎÔÖÙÛÜŸÇ]/u', '', $cleaned);
+        
+        // Si vide après nettoyage, retourner un nom par défaut
+        if (empty($cleaned)) {
+            return 'Client';
+        }
+        
+        // Limiter la longueur (max 32 caractères pour PrestaShop)
+        $cleaned = mb_substr($cleaned, 0, 32);
+        
+        return pSQL(ucfirst(strtolower($cleaned)));
     }
 
     private function sanitizePhone(string $phone): string

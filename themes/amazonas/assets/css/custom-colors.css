@@ -180,6 +180,10 @@ select:focus {
     color: #70441d;
 }
 
+.navbar-toggler.collapse-icons > i.material-icons.add, .navbar-toggler.collapse-icons > i.material-icons.remove {
+    color: #fff !important;
+}
+
 .material-icons:hover,
 .fa:hover {
     color: #EE6751;
