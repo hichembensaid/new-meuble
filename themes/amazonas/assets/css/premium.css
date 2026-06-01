@@ -1281,15 +1281,6 @@ button.wishlist-button-add,
 }
 
 /* ================================================================
-   20. MASQUER COPYRIGHT THÈME
-   ================================================================ */
-.ybc_coppyright,
-.footer_bottom .ybc_coppyright,
-#footer .ybc_coppyright {
-  display: none !important;
-}
-
-/* ================================================================
    17. FINITIONS
    ================================================================ */
 ::-webkit-scrollbar { width: 5px; }
