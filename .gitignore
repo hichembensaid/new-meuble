@@ -1,3 +1,17 @@
 /.history
 /var/cache
 /vendor
+
+# Images produits - ignorer uniquement les miniatures générées automatiquement
+img/p/**/*-cart_default.jpg
+img/p/**/*-home_default.jpg
+img/p/**/*-small_default.jpg
+img/p/**/*-medium_default.jpg
+img/p/**/*-large_default.jpg
+img/p/**/*-scene_default.jpg
+img/p/**/*-thickbox_default.jpg
+img/p/**/*-category_default.jpg
+
+# Cache
+/cache/*
+!/cache/index.php
