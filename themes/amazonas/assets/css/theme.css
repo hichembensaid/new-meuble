@@ -10194,12 +10194,15 @@ body#checkout #gift_message {
     .carousel .carousel-control.left, .carousel .carousel-control.right {
       background: none; }
 
-#products .products, .featured-products .products, .product-accessories .products {
-  display: flex;
-  flex-wrap: wrap;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  -ms-flex-pack: start; }
+/* Grid sur listing de produits UNIQUEMENT (pas page d'accueil) */
+body:not(#index) #products .products, 
+body:not(#index) #js-product-list .products,
+body:not(#index) .product-accessories .products {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+}
 
 #products .product-thumbnail, .featured-products .product-thumbnail, .product-accessories .product-thumbnail {
   display: block; }
@@ -10339,7 +10342,6 @@ body#checkout #gift_message {
 .product-description, 
 .featured-products .product-description, 
 .product-accessories .product-description {
-  background: none repeat scroll 0 0 #FFFFFF;
     display: block;
 }
 .home_layout_menu .ets_mm_block_content > a {
@@ -15973,9 +15975,103 @@ button[data-button-action="add-to-cart"] {
 .btn.quickorder-btn,
 button.quickorder-btn,
 .quickorder-btn {
-  display: inline-block !important;
+  display: inline-flex !important;
   visibility: visible !important;
   opacity: 1 !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* === GRILLE PRODUITS - RESPONSIVE === */
+/* Appliquer uniquement sur les pages de listing/catégories, PAS sur la page d'accueil */
+
+/* Désactiver Owl Carousel UNIQUEMENT sur les pages catégories/listing */
+body:not(#index) .products.owl-carousel,
+body:not(#index) .products.owl-loaded,
+body:not(#index) .products.owl-drag {
+  display: grid !important;
+}
+
+/* Affichage par défaut : 2 colonnes - UNIQUEMENT pages listing */
+body:not(#index) .products.row,
+body:not(#index) #products .products,
+body:not(#index) #js-product-list .products,
+body:not(#index) .product-accessories .products {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 20px !important;
+  width: 100% !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Forcer chaque produit à prendre toute la largeur de sa cellule - UNIQUEMENT pages listing */
+body:not(#index) .products .product-miniature,
+body:not(#index) .products article.product-miniature {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: none !important;
+}
+
+/* Écrans moyens : 2 colonnes */
+@media (min-width: 768px) and (max-width: 1199px) {
+  body:not(#index) .products.row,
+  body:not(#index) #products .products,
+  body:not(#index) #js-product-list .products,
+  body:not(#index) .product-accessories .products {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Grands écrans : 3 colonnes */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  body:not(#index) .products.row,
+  body:not(#index) #products .products,
+  body:not(#index) #js-product-list .products,
+  body:not(#index) .product-accessories .products {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* Très grands écrans (1400px+) : 3 colonnes */
+@media (min-width: 1400px) {
+  body:not(#index) .products.row,
+  body:not(#index) #products .products,
+  body:not(#index) #js-product-list .products,
+  body:not(#index) .product-accessories .products {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 15px !important;
+  }
+}
+
+/* Mobile : 1 colonne */
+@media (max-width: 767px) {
+  body:not(#index) .products.row,
+  body:not(#index) #products .products,
+  body:not(#index) #js-product-list .products,
+  body:not(#index) .product-accessories .products {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+    justify-items: stretch !important;
+    padding: 0 0px 0 15px !important;
+    width: 103% !important;
+  }
+  
+  /* Articles produits pleine largeur */
+  body:not(#index) .products .product-miniature,
+  body:not(#index) .products article {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+/* Masquer les contrôles Owl Carousel UNIQUEMENT sur les pages listing (pas accueil) */
+body:not(#index) .products .owl-nav,
+body:not(#index) .products .owl-dots,
+body:not(#index) #products .products .owl-nav,
+body:not(#index) #products .products .owl-dots {
+  display: none !important;
 }
 
 /*# sourceMappingURL=theme.css.map*/

@@ -98,6 +98,12 @@ body.ybc-skin-green_1 .social-sharing li a:hover:before {
     color: #fff !important;
 }
 
+/* Cacher le bouton "Ajouter au panier" dans quickview (on garde uniquement Commander) */
+.quickview .product-add-to-cart .add-to-cart,
+.quickview .product-add-to-cart button[data-button-action="add-to-cart"] {
+    display: none !important;
+}
+
 .btn-primary:hover,
 .button-primary:hover,
 .add-to-cart:hover,
@@ -458,7 +464,7 @@ select:focus {
 }
 
 .product-miniature .product-price-and-shipping .price {
-    font-size: 20px !important;
+    font-size: 17px !important;
     font-weight: 600 !important;
     color: var(--gold-premium) !important;
     letter-spacing: 0.5px !important;
@@ -649,7 +655,6 @@ select:focus {
     display: block;
     width: 40px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold-premium), transparent);
     margin: 15px auto 0;
     opacity: 0.6;
 }
@@ -981,7 +986,12 @@ select:focus {
 #blockcart-modal .modal-header {
     background: linear-gradient(135deg, #70441d 0%, #5a3518 100%) !important;
     border-bottom: 3px solid #f7c669 !important;
-    padding: 20px 30px !important;
+    padding: 20px 70px 20px 30px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+    min-height: 70px !important;
 }
 
 /* === TITRE PRODUIT === */
@@ -996,9 +1006,11 @@ select:focus {
     text-transform: uppercase !important;
     letter-spacing: 2.5px !important;
     margin: 0 !important;
+    flex: 1 !important;
+    text-align: center !important;
 }
 
-/* === BOUTON FERMER (X) === */
+/* === BOUTON FERMER (X) - CENTRÉ AVEC MARGE === */
 .quickview .modal-header .close,
 .quickview .modal-header button.close,
 #blockcart-modal .modal-header .close {
@@ -1007,17 +1019,27 @@ select:focus {
     opacity: 1 !important;
     border: 2px solid #f7c669 !important;
     border-radius: 50% !important;
-    width: 40px !important;
-    height: 40px !important;
+    width: 42px !important;
+    height: 42px !important;
     font-size: 28px !important;
     transition: all 0.3s ease !important;
+    position: absolute !important;
+    right: 15px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .quickview .modal-header .close:hover,
 #blockcart-modal .modal-header .close:hover {
     background: #f7c669 !important;
     color: #70441d !important;
-    transform: rotate(90deg);
+    transform: translateY(-50%) rotate(90deg) !important;
 }
 
 /* === BODY MODAL === */
@@ -1082,27 +1104,93 @@ select:focus {
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 4px 10px rgba(181, 154, 87, 0.4) !important;
 }
 
-/* === BOUTON "AJOUTER AU PANIER" PREMIUM OR === */
+/* === BOUTON "AJOUTER AU PANIER" / "COMMANDER" PREMIUM OR === */
+
+/* Cacher le bouton "Ajouter au panier" standard dans le quickview */
 .quickview .add-to-cart,
 .quickview button[data-button-action="add-to-cart"],
-.quickview .btn-primary {
+.quickview .btn-primary:not(.quickorder-btn) {
+    display: none !important;
+}
+
+/* Style premium OR pour le bouton "Commander" (quickorder) */
+.quickview .quickorder-btn,
+.quickview .btn.quickorder-btn,
+.quickview button.quickorder-btn,
+button.quickorder-btn,
+.quickorder-btn,
+.product-add-to-cart button.quickorder-btn {
     background: linear-gradient(135deg, #D4AF37 0%, #B59A57 50%, #AA7C11 100%) !important;
     border: none !important;
     color: #000 !important;
     font-family: 'Montserrat', sans-serif !important;
     font-size: 16px !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 2px !important;
     padding: 15px 40px !important;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 12px rgba(181, 154, 87, 0.4) !important;
     border-radius: 0 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    width: auto !important;
+    min-width: 200px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
-.quickview .add-to-cart:hover,
-.quickview .btn-primary:hover {
-    transform: translateY(-2px);
+.quickview .quickorder-btn:hover,
+.quickview .btn.quickorder-btn:hover,
+button.quickorder-btn:hover,
+.quickorder-btn:hover {
+    transform: translateY(-2px) !important;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 6px 20px rgba(181, 154, 87, 0.5) !important;
+}
+
+/* Icône du bouton commander */
+.quickview .quickorder-btn i,
+.quickview .quickorder-btn .material-icons,
+button.quickorder-btn i,
+button.quickorder-btn .material-icons,
+.quickorder-btn i {
+    color: #000 !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Texte du bouton centré */
+.quickview .quickorder-btn span,
+button.quickorder-btn span,
+.quickorder-btn span {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* === ZONE PRODUIT (quantité + commander) === */
+.quickview .product-add-to-cart,
+.product-add-to-cart {
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+    margin-top: 20px !important;
+    flex-wrap: wrap !important;
+}
+
+.quickview .product-quantity,
+.product-quantity {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
 }
 
 /* === ICÔNES SOCIALES === */
@@ -1115,6 +1203,24 @@ select:focus {
     border: 2px solid rgba(181, 154, 87, 0.3) !important;
     color: #70441d !important;
     transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
+
+.quickview .social-sharing a i,
+.quickview .social-sharing a .fa,
+.quickview .social-sharing button i,
+.quickview .social-sharing button .fa {
+    color: #70441d !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
 }
 
 .quickview .social-sharing a:hover,
@@ -1123,6 +1229,13 @@ select:focus {
     border-color: #f7c669 !important;
     color: #fff !important;
     transform: translateY(-3px) rotate(5deg);
+}
+
+.quickview .social-sharing a:hover i,
+.quickview .social-sharing a:hover .fa,
+.quickview .social-sharing button:hover i,
+.quickview .social-sharing button:hover .fa {
+    color: #fff !important;
 }
 
 /* === IMAGE PRODUIT === */
@@ -1151,6 +1264,45 @@ select:focus {
     
     .quickview .modal-body {
         padding: 20px !important;
+    }
+    
+    /* Header modal responsive */
+    .quickview .modal-header,
+    #blockcart-modal .modal-header {
+        padding: 15px 60px 15px 20px !important;
+        min-height: 60px !important;
+    }
+    
+    .quickview .modal-title,
+    #blockcart-modal .modal-title,
+    .quickview .modal-header h1 {
+        font-size: 18px !important;
+        letter-spacing: 2px !important;
+    }
+    
+    /* Bouton Commander responsive mobile */
+    .quickview .quickorder-btn,
+    .quickview .btn.quickorder-btn,
+    button.quickorder-btn,
+    .quickorder-btn {
+        width: 100% !important;
+        min-width: auto !important;
+        padding: 12px 30px !important;
+        font-size: 14px !important;
+    }
+    
+    .quickview .product-add-to-cart,
+    .product-add-to-cart {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 15px !important;
+    }
+    
+    .quickview .modal-header .close,
+    #blockcart-modal .modal-header .close {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 24px !important;
     }
 }
 
@@ -1286,3 +1438,345 @@ select:focus {
     border-radius: 50%;
     animation: spinGold 0.8s linear infinite;
 }
+
+/* ========================================
+   MODAL COMMANDE RAPIDE PREMIUM
+   Design Luxe Haute Ébénisterie
+   ======================================== */
+
+/* === OVERLAY MODAL === */
+#quickOrderModal .modal-backdrop,
+.modal-backdrop.show {
+    background: rgba(70, 44, 29, 0.85) !important;
+}
+
+/* === CONTAINER MODAL === */
+#quickOrderModal .modal-content {
+    background: linear-gradient(180deg, #F9F6F0 0%, #FFFBF3 100%) !important;
+    border: 3px solid #f7c669 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 20px 60px rgba(112, 68, 29, 0.4) !important;
+    position: relative;
+}
+
+/* === HEADER MODAL (orange -> brun/or) === */
+#quickOrderModal .modal-header,
+#quickOrderModal .quickorder-modal__header {
+    background: linear-gradient(135deg, #70441d 0%, #5a3518 100%) !important;
+    border-bottom: 3px solid #f7c669 !important;
+    padding: 20px 70px 20px 30px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    position: relative !important;
+    min-height: auto !important;
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+/* === TITRE "Commande Rapide" === */
+#quickOrderModal .modal-title,
+#quickOrderModal .quickorder-modal__title {
+    font-family: 'Cinzel', serif !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: #f7c669 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2.5px !important;
+    margin: 0 0 10px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+}
+
+/* Sous-titre */
+#quickOrderModal .quickorder-modal__subtitle {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 13px !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    margin: 0 !important;
+    line-height: 1.5 !important;
+}
+
+/* Icône camion */
+#quickOrderModal .modal-title i,
+#quickOrderModal .quickorder-modal__icon {
+    color: #f7c669 !important;
+    font-size: 26px !important;
+}
+
+/* === BOUTON FERMER (X) === */
+#quickOrderModal .close,
+#quickOrderModal .quickorder-modal__close {
+    background: rgba(247, 198, 105, 0.2) !important;
+    color: #f7c669 !important;
+    opacity: 1 !important;
+    border: 2px solid #f7c669 !important;
+    border-radius: 50% !important;
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 28px !important;
+    transition: all 0.3s ease !important;
+    position: absolute !important;
+    right: 15px !important;
+    top: 20px !important;
+    transform: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#quickOrderModal .close:hover,
+#quickOrderModal .quickorder-modal__close:hover {
+    background: #f7c669 !important;
+    color: #70441d !important;
+    transform: rotate(90deg) !important;
+}
+
+/* === BODY MODAL === */
+#quickOrderModal .modal-body {
+    padding: 30px !important;
+    background: transparent !important;
+}
+
+/* === INFORMATIONS PRODUIT === */
+#quickOrderModal .quickorder-product-summary,
+#quickOrderModal .alert-info {
+    background: rgba(181, 154, 87, 0.08) !important;
+    border: 1px solid rgba(181, 154, 87, 0.2) !important;
+    border-left: 4px solid #f7c669 !important;
+    padding: 20px !important;
+    margin-bottom: 25px !important;
+    border-radius: 0 !important;
+}
+
+#quickOrderModal .quickorder-product-summary strong {
+    color: #70441d !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600 !important;
+}
+
+/* === FORMULAIRE === */
+#quickOrderModal input[type="text"],
+#quickOrderModal input[type="tel"],
+#quickOrderModal input[type="email"],
+#quickOrderModal textarea,
+#quickOrderModal .form-control {
+    font-family: 'Montserrat', sans-serif !important;
+    border: 1.5px solid rgba(181, 154, 87, 0.3) !important;
+    border-radius: 0 !important;
+    padding: 12px 16px !important;
+    background: #fff !important;
+    color: #4A4A4A !important;
+    font-size: 14px !important;
+    transition: border-color 0.15s, box-shadow 0.15s !important;
+}
+
+#quickOrderModal input:focus,
+#quickOrderModal textarea:focus,
+#quickOrderModal .form-control:focus {
+    border-color: #f7c669 !important;
+    box-shadow: 0 0 0 3px rgba(247, 198, 105, 0.20) !important;
+    outline: none !important;
+}
+
+#quickOrderModal label,
+#quickOrderModal .form-control-label {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #70441d !important;
+    margin-bottom: 8px !important;
+}
+
+/* Astérisque rouge */
+#quickOrderModal .required {
+    color: #EE6751 !important;
+}
+
+/* === BOUTON "CONFIRMER MA COMMANDE" PREMIUM OR === */
+#quickOrderModal button[type="submit"],
+#quickOrderModal .btn-primary,
+#quickOrderModal .btn-warning,
+#quickOrderModal .quickorder-submit,
+#qo-submit {
+    background: linear-gradient(135deg, #D4AF37 0%, #B59A57 50%, #AA7C11 100%) !important;
+    border: none !important;
+    color: #000 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    padding: 15px 40px !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 12px rgba(181, 154, 87, 0.4) !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+}
+
+#quickOrderModal button[type="submit"]:hover,
+#quickOrderModal .btn-primary:hover,
+#quickOrderModal .btn-warning:hover,
+#quickOrderModal .quickorder-submit:hover,
+#qo-submit:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 6px 20px rgba(181, 154, 87, 0.5) !important;
+    background: linear-gradient(135deg, #E5BF47 0%, #C6AB67 50%, #BB8D21 100%) !important;
+}
+
+/* Icône du bouton */
+#quickOrderModal button[type="submit"] i,
+#quickOrderModal .btn-primary i,
+#quickOrderModal .quickorder-submit i,
+#quickOrderModal .qo-submit__label i,
+#qo-submit i {
+    color: #000 !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    margin-right: 5px !important;
+}
+
+/* Label et loading state */
+#quickOrderModal .qo-submit__label {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+#quickOrderModal .qo-submit__loading {
+    display: none !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+/* Quand le bouton est en état loading */
+#quickOrderModal .quickorder-submit.loading .qo-submit__label,
+#qo-submit.loading .qo-submit__label {
+    display: none !important;
+}
+
+#quickOrderModal .quickorder-submit.loading .qo-submit__loading,
+#qo-submit.loading .qo-submit__loading {
+    display: flex !important;
+}
+
+/* Spinner */
+#quickOrderModal .spinner-border {
+    border-color: rgba(0, 0, 0, 0.2) !important;
+    border-right-color: transparent !important;
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* === BOUTON ANNULER === */
+#quickOrderModal .btn-outline-secondary {
+    display: none !important;
+    background: transparent !important;
+    border: 2px solid rgba(181, 154, 87, 0.4) !important;
+    color: #70441d !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    padding: 12px 30px !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+#quickOrderModal .btn-outline-secondary:hover {
+    background: rgba(181, 154, 87, 0.1) !important;
+    border-color: #70441d !important;
+    color: #70441d !important;
+}
+
+/* === FOOTER MODAL === */
+#quickOrderModal .modal-footer,
+#quickOrderModal .quickorder-modal__footer {
+    background: rgba(181, 154, 87, 0.05) !important;
+    border-top: 1px solid rgba(181, 154, 87, 0.2) !important;
+    padding: 20px 30px !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 15px !important;
+}
+
+
+/* === NOTE CONFIDENTIALITÉ / RGPD === */
+#quickOrderModal .quickorder-notice,
+#quickOrderModal .quickorder-rgpd {
+    background: rgba(181, 154, 87, 0.08) !important;
+    border: 1px solid rgba(181, 154, 87, 0.2) !important;
+    border-left: 4px solid #AA7C11 !important;
+    color: #70441d !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 13px !important;
+    padding: 12px 15px !important;
+    margin-top: 20px !important;
+    border-radius: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+#quickOrderModal .quickorder-notice i,
+#quickOrderModal .quickorder-rgpd i {
+    color: #AA7C11 !important;
+    margin-right: 0 !important;
+    font-size: 18px !important;
+}
+
+/* === RESPONSIVE MOBILE === */
+@media (max-width: 767px) {
+    #quickOrderModal .modal-header,
+    #quickOrderModal .quickorder-modal__header {
+        padding: 15px 60px 15px 20px !important;
+    }
+    
+    #quickOrderModal .modal-title,
+    #quickOrderModal .quickorder-modal__title {
+        font-size: 16px !important;
+        letter-spacing: 2px !important;
+    }
+    
+    #quickOrderModal .modal-body {
+        padding: 20px !important;
+    }
+    
+    #quickOrderModal button[type="submit"],
+    #quickOrderModal .quickorder-submit,
+    #qo-submit {
+        padding: 12px 30px !important;
+        font-size: 14px !important;
+        width: 100% !important;
+    }
+    
+    #quickOrderModal .btn-outline-secondary {
+        padding: 10px 20px !important;
+        font-size: 13px !important;
+    }
+    
+    #quickOrderModal .modal-footer,
+    #quickOrderModal .quickorder-modal__footer {
+        flex-direction: column-reverse !important;
+        padding: 15px 20px !important;
+        gap: 10px !important;
+    }
+    
+    #quickOrderModal .modal-footer button {
+        width: 100% !important;
+    }
+}
+

@@ -19,7 +19,7 @@
 *  International Registered Trademark & Property of ETS-Soft
 *}
 <div id="js-product-list-top" class="row products-selection">
-  <div class="col-md-6 hidden-sm-down total-products">
+  <div class="col-md-6 hidden total-products">
     {*if $listing.products|count > 1}
       <p>{l s='There are %product_count% products.' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.products|count]}</p>
     {else}

@@ -674,7 +674,6 @@ input::placeholder, textarea::placeholder { color: #bbb !important; }
 .block-categories ul li a {
   font-size: .86rem !important; color: var(--tx2) !important;
   padding: 9px 16px !important; display: block !important;
-  border-bottom: 1px solid var(--bd) !important;
   transition: all .15s !important;
 }
 .block-categories ul li a:hover {
@@ -1163,11 +1162,22 @@ input::placeholder, textarea::placeholder { color: #bbb !important; }
    16. RESPONSIVE MOBILE
    ================================================================ */
 @media (max-width: 991px) {
-  /* 1 produit par ligne */
+  /* 1 produit par ligne - Pleine largeur */
   .products, .product-list {
     display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 14px !important;
+    justify-items: stretch !important;
+    padding: 0 15px !important;
+    width: 100% !important;
+  }
+  
+  /* Produits en pleine largeur */
+  .products .product-miniature,
+  .products article.product-miniature {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
   }
 
   /* Recherche pleine largeur */

@@ -125,7 +125,9 @@ $(document).ready(function(){
          $("html, body").animate({ scrollTop: 0 }, "slow");
          return false;
     });
-    if ( $('.featured-products .products').length != ''){
+    
+    // Owl Carousel sur featured-products (page d'accueil uniquement)
+    if ( $('.featured-products .products').length != '' && $('body#index').length){
         $('.featured-products .products').owlCarousel({
             items : 4,
             responsive : {

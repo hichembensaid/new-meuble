@@ -61,7 +61,7 @@
 
 <div class="block-categories">
   <ul class="category-top-menu">
-    <li><a class="text-uppercase h6" href="{$categories.link nofilter}">{$categories.name}</a></li>
+    <li><a class="text-uppercase h6" href="/">{$categories.name}</a></li>
     {if !empty($categories.children)}
       <li>{categories nodes=$categories.children}</li>
     {/if}
