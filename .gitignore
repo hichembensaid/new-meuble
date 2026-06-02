@@ -11,6 +11,7 @@ img/p/**/*-large_default.jpg
 img/p/**/*-scene_default.jpg
 img/p/**/*-thickbox_default.jpg
 img/p/**/*-category_default.jpg
+img/p/**/fileType
 
 # Cache
 /cache/*
