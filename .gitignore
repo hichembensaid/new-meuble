@@ -1,5 +1,6 @@
 /.history
 /var/cache
+/var/logs
 /vendor
 
 # Images produits - ignorer uniquement les miniatures générées automatiquement
