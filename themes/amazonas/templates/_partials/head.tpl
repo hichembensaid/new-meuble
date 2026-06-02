@@ -64,6 +64,12 @@
   {include file="_partials/stylesheets.tpl" stylesheets=$stylesheets}
 {/block}
 
+{* === STYLES PREMIUM LISTING PRODUITS === *}
+<link rel="stylesheet" href="{$urls.theme_assets}css/premium-product-listing.css" type="text/css" media="all">
+<link rel="stylesheet" href="{$urls.theme_assets}css/debug-premium.css" type="text/css" media="all">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 {block name='javascript_head'}
   {include file="_partials/javascript.tpl" javascript=$javascript.head vars=$js_custom_vars}
 {/block}

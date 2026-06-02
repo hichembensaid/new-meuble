@@ -1,0 +1,122 @@
+/* ========================================
+   CSS PRODUITS UNIQUEMENT - VERSION PROPRE
+   Ne touche PAS au header, footer, nav, OWL CAROUSEL
+   ======================================== */
+
+/* === FORCER AFFICHAGE IMAGES PRODUITS === */
+.product-miniature img {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* === GRILLE PRODUITS - SAUF OWL CAROUSEL === */
+/* Cibler UNIQUEMENT les pages catégories, PAS la homepage */
+#products .products:not(.owl-carousel),
+#js-product-list .products:not(.owl-carousel) {
+    display: grid !important;
+    gap: 10px;
+    padding: 5px;
+}
+
+/* Responsive */
+@media (max-width: 575px) {
+    #products .products:not(.owl-carousel),
+    #js-product-list .products:not(.owl-carousel) {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+    #products .products:not(.owl-carousel),
+    #js-product-list .products:not(.owl-carousel) {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1399px) {
+    #products .products:not(.owl-carousel),
+    #js-product-list .products:not(.owl-carousel) {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    #products .products:not(.owl-carousel),
+    #js-product-list .products:not(.owl-carousel) {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+.premium-grid-layout article {
+    width: 100% !important;
+}
+
+/* === RESPONSIVE GRILLE === */
+/* Mobile - 1 colonne */
+@media (max-width: 575px) {
+    .products.row,
+    #products .products,
+    .featured-products .products,
+    #js-product-list .products {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+}
+
+/* Tablette - 2 colonnes */
+@media (min-width: 576px) and (max-width: 991px) {
+    .products.row,
+    #products .products,
+    .featured-products .products,
+    #js-product-list .products {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+    }
+}
+
+/* Desktop - 3 colonnes */
+@media (min-width: 992px) {
+    .products.row,
+    #products .products,
+    .featured-products .products,
+    #js-product-list .products {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 30px;
+    }
+}
+
+/* Large Desktop - 3 colonnes */
+@media (min-width: 1400px) {
+    .products.row,
+    #products .products,
+    .featured-products .products,
+    #js-product-list .products {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+/* === FIX COLONNES BOOTSTRAP DANS GRILLE PRODUITS === */
+.products > [class*="col-"] {
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* === FIX OWL CAROUSEL (si présent) === */
+.products.owl-carousel .owl-stage-outer,
+.products.owl-carousel .owl-stage {
+    display: contents !important;
+}
+
+.products.owl-carousel .owl-item {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.products.owl-carousel .owl-nav,
+.products.owl-carousel .owl-dots {
+    display: none !important;
+}

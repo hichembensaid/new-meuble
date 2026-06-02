@@ -35,3 +35,6 @@
     {/foreach}
   </script>
 {/if}
+
+{* === EFFETS PREMIUM LISTING PRODUITS === *}
+<script type="text/javascript" src="{$urls.theme_assets}js/premium-product-effects.js"></script>
