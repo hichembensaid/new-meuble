@@ -942,3 +942,347 @@ select:focus {
         padding: 18px 20px !important;
     }
 }
+
+/* ========================================
+   MODAL QUICK VIEW PREMIUM
+   Design Luxe Haute Ébénisterie
+   ======================================== */
+
+/* === OVERLAY MODAL === */
+.modal-backdrop.show {
+    background: rgba(70, 44, 29, 0.85) !important;
+}
+
+/* === CONTAINER MODAL === */
+.quickview .modal-content,
+#blockcart-modal .modal-content,
+.modal-dialog .modal-content {
+    background: linear-gradient(180deg, #F9F6F0 0%, #FFFBF3 100%) !important;
+    border: 3px solid #f7c669 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 20px 60px rgba(112, 68, 29, 0.4) !important;
+    position: relative;
+}
+
+.quickview .modal-content::before,
+#blockcart-modal .modal-content::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* === HEADER MODAL === */
+.quickview .modal-header,
+#blockcart-modal .modal-header {
+    background: linear-gradient(135deg, #70441d 0%, #5a3518 100%) !important;
+    border-bottom: 3px solid #f7c669 !important;
+    padding: 20px 30px !important;
+}
+
+/* === TITRE PRODUIT === */
+.quickview .modal-title,
+#blockcart-modal .modal-title,
+.quickview .modal-header h1,
+.quickview .modal-header .h1 {
+    font-family: 'Cinzel', serif !important;
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    color: #f7c669 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2.5px !important;
+    margin: 0 !important;
+}
+
+/* === BOUTON FERMER (X) === */
+.quickview .modal-header .close,
+.quickview .modal-header button.close,
+#blockcart-modal .modal-header .close {
+    background: rgba(247, 198, 105, 0.2) !important;
+    color: #f7c669 !important;
+    opacity: 1 !important;
+    border: 2px solid #f7c669 !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 28px !important;
+    transition: all 0.3s ease !important;
+}
+
+.quickview .modal-header .close:hover,
+#blockcart-modal .modal-header .close:hover {
+    background: #f7c669 !important;
+    color: #70441d !important;
+    transform: rotate(90deg);
+}
+
+/* === BODY MODAL === */
+.quickview .modal-body,
+#blockcart-modal .modal-body {
+    padding: 30px !important;
+    background: transparent !important;
+}
+
+/* === SECTION PRIX === */
+.quickview .product-prices,
+.quickview .current-price-value,
+.quickview .price {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    color: #f7c669 !important;
+}
+
+.quickview .regular-price {
+    font-size: 18px !important;
+    color: #8C8C8C !important;
+    text-decoration: line-through !important;
+    font-weight: 400 !important;
+}
+
+/* === SÉLECTEUR QUANTITÉ PREMIUM === */
+.quickview .product-quantity input[type="number"],
+.quickview .qty input {
+    width: 70px !important;
+    height: 50px !important;
+    text-align: center !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #70441d !important;
+    background: #fff !important;
+    border: 2px solid rgba(181, 154, 87, 0.3) !important;
+    border-radius: 0 !important;
+}
+
+.quickview .product-quantity input:focus {
+    border-color: #f7c669 !important;
+    box-shadow: 0 0 0 3px rgba(247, 198, 105, 0.15) !important;
+    outline: none !important;
+}
+
+/* Boutons +/- quantité */
+.quickview .bootstrap-touchspin-down,
+.quickview .bootstrap-touchspin-up,
+.quickview .input-group-btn-vertical button {
+    background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%) !important;
+    border: none !important;
+    color: #000 !important;
+    width: 40px !important;
+    height: 40px !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 2px 6px rgba(181, 154, 87, 0.3) !important;
+}
+
+.quickview .bootstrap-touchspin-down:hover,
+.quickview .bootstrap-touchspin-up:hover {
+    transform: scale(1.1);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 4px 10px rgba(181, 154, 87, 0.4) !important;
+}
+
+/* === BOUTON "AJOUTER AU PANIER" PREMIUM OR === */
+.quickview .add-to-cart,
+.quickview button[data-button-action="add-to-cart"],
+.quickview .btn-primary {
+    background: linear-gradient(135deg, #D4AF37 0%, #B59A57 50%, #AA7C11 100%) !important;
+    border: none !important;
+    color: #000 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    padding: 15px 40px !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 12px rgba(181, 154, 87, 0.4) !important;
+    border-radius: 0 !important;
+}
+
+.quickview .add-to-cart:hover,
+.quickview .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 6px 20px rgba(181, 154, 87, 0.5) !important;
+}
+
+/* === ICÔNES SOCIALES === */
+.quickview .social-sharing a,
+.quickview .social-sharing button {
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+    background: #fff !important;
+    border: 2px solid rgba(181, 154, 87, 0.3) !important;
+    color: #70441d !important;
+    transition: all 0.3s ease !important;
+}
+
+.quickview .social-sharing a:hover,
+.quickview .social-sharing button:hover {
+    background: linear-gradient(135deg, #f7c669 0%, #EE6751 100%) !important;
+    border-color: #f7c669 !important;
+    color: #fff !important;
+    transform: translateY(-3px) rotate(5deg);
+}
+
+/* === IMAGE PRODUIT === */
+.quickview .product-cover img,
+.quickview .product-images img {
+    border: 3px solid rgba(181, 154, 87, 0.2) !important;
+    padding: 10px !important;
+    background: #fff !important;
+}
+
+.quickview .product-cover img:hover {
+    border-color: #f7c669 !important;
+}
+
+/* === RESPONSIVE MODAL === */
+@media (max-width: 767px) {
+    .quickview .modal-title {
+        font-size: 18px !important;
+        letter-spacing: 2px !important;
+    }
+    
+    .quickview .product-prices,
+    .quickview .price {
+        font-size: 22px !important;
+    }
+    
+    .quickview .modal-body {
+        padding: 20px !important;
+    }
+}
+
+/* ========================================
+   LOADER PREMIUM QUICK VIEW
+   Spinner Or Élégant
+   ======================================== */
+
+/* === LOADER CONTAINER === */
+.quickview-loading,
+.quickview .modal-body.loading {
+    position: relative;
+    min-height: 400px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #F9F6F0 0%, #FFFBF3 100%) !important;
+}
+
+/* === SPINNER OR MÉTALLIQUE === */
+.quickview-loading::before,
+.quickview .modal-body.loading::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 6px solid rgba(181, 154, 87, 0.15);
+    border-top: 6px solid #D4AF37;
+    border-right: 6px solid #B59A57;
+    border-radius: 50%;
+    animation: spinGold 1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+/* Double cercle décoratif */
+.quickview-loading::after,
+.quickview .modal-body.loading::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 2px solid rgba(247, 198, 105, 0.2);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes spinGold {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 0.8;
+    }
+}
+
+/* === MESSAGE CHARGEMENT === */
+.quickview-loading-text,
+.quickview .loading-text {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 16px;
+    font-style: italic;
+    color: #AA7C11;
+    letter-spacing: 1.5px;
+    animation: fadeInOut 2s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* === CACHE LE CONTENU PENDANT LE CHARGEMENT === */
+.quickview .modal-body.loading > *:not(.quickview-loading):not(.loading-text) {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* === TRANSITION APPARITION CONTENU === */
+.quickview .modal-body {
+    transition: opacity 0.5s ease;
+}
+
+.quickview .modal-body.loaded {
+    animation: fadeInContent 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === LOADER PETIT (pour boutons) === */
+.btn-loading,
+.quickview .add-to-cart.loading {
+    position: relative;
+    pointer-events: none;
+    color: transparent !important;
+}
+
+.btn-loading::before,
+.quickview .add-to-cart.loading::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    border: 3px solid rgba(0, 0, 0, 0.2);
+    border-top-color: #000;
+    border-radius: 50%;
+    animation: spinGold 0.8s linear infinite;
+}

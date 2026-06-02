@@ -6291,7 +6291,7 @@ input[type="button"].btn-block {
   pointer-events: none; }
 
 .qty .input-group {
-  display: block;
+  display: flex;
   float: left;
   width: 100%;
 }
@@ -11375,7 +11375,10 @@ body #search_filters .facet .facet-label .custom-radio {
   float: left; }
 
 .product-quantity .input-group-btn-vertical .btn {
-  padding: 0.5rem 0.6875rem; }
+  padding: 0.5rem 0.6875rem;
+  height: 26px!important;
+
+}
   .product-quantity .input-group-btn-vertical .btn i {
     font-size: 1rem;
     top: 0.125rem;

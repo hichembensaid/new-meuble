@@ -38,3 +38,6 @@
 
 {* === EFFETS PREMIUM LISTING PRODUITS === *}
 <script type="text/javascript" src="{$urls.theme_assets}js/premium-product-effects.js"></script>
+
+{* === LOADER PREMIUM QUICK VIEW === *}
+<script type="text/javascript" src="{$urls.theme_assets}js/quickview-loader.js"></script>
