@@ -716,3 +716,229 @@ select:focus {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(238, 103, 81, 0.4);
 }
+
+/* ========================================
+   MEGA MENU MOBILE PREMIUM
+   Design Luxe Haute Ébénisterie
+   ======================================== */
+
+/* === OVERLAY MENU MOBILE === */
+#mobile_top_menu_wrapper {
+    background: rgba(112, 68, 29, 0.98) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* === HEADER "CATEGORIES" === */
+#mobile_top_menu_wrapper .block-categories-title,
+#mobile_top_menu_wrapper .top-menu-title {
+    background: linear-gradient(135deg, #70441d 0%, #5a3518 100%) !important;
+    color: #f7c669 !important;
+    font-family: 'Cinzel', serif !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    padding: 20px 25px !important;
+    border-bottom: 3px solid #f7c669 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* === BOUTON FERMER (X) === */
+#mobile_top_menu_wrapper .close-menu,
+#mobile_top_menu_wrapper .navbar-toggler {
+    background: rgba(247, 198, 105, 0.15) !important;
+    color: #f7c669 !important;
+    border: 2px solid #f7c669 !important;
+    border-radius: 50% !important;
+    width: 45px !important;
+    height: 45px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+}
+
+#mobile_top_menu_wrapper .close-menu:hover,
+#mobile_top_menu_wrapper .navbar-toggler:hover {
+    background: #f7c669 !important;
+    color: #70441d !important;
+    transform: rotate(90deg);
+}
+
+/* === CONTENEUR MENU === */
+#mobile_top_menu_wrapper .js-top-menu {
+    background: linear-gradient(180deg, #F9F6F0 0%, #FFFBF3 100%) !important;
+    padding: 0 !important;
+}
+
+/* === LIENS CATÉGORIES PRINCIPALES === */
+#mobile_top_menu_wrapper .category,
+#mobile_top_menu_wrapper .top-menu > li > a {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: #4A4A4A !important;
+    padding: 18px 25px !important;
+    border-bottom: 1px solid rgba(181, 154, 87, 0.15) !important;
+    border-left: 4px solid transparent !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+#mobile_top_menu_wrapper .category:hover,
+#mobile_top_menu_wrapper .top-menu > li > a:hover {
+    background: rgba(247, 198, 105, 0.08) !important;
+    border-left-color: #f7c669 !important;
+    color: #70441d !important;
+    padding-left: 30px !important;
+}
+
+#mobile_top_menu_wrapper .category.current,
+#mobile_top_menu_wrapper .top-menu > li.current > a {
+    background: rgba(247, 198, 105, 0.12) !important;
+    border-left-color: #EE6751 !important;
+    color: #70441d !important;
+    font-weight: 600 !important;
+}
+
+/* === SOUS-CATÉGORIES (DÉROULANT) === */
+#mobile_top_menu_wrapper .sub-menu,
+#mobile_top_menu_wrapper .collapse {
+    background: linear-gradient(180deg, #FFFBF3 0%, #FFF9ED 100%) !important;
+    border-left: 3px solid #f7c669 !important;
+    margin-left: 15px !important;
+    padding: 10px 0 !important;
+    box-shadow: inset 0 4px 8px rgba(181, 154, 87, 0.08) !important;
+}
+
+#mobile_top_menu_wrapper .sub-menu li a,
+#mobile_top_menu_wrapper .collapse li a {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    font-style: italic !important;
+    color: #AA7C11 !important;
+    padding: 12px 25px 12px 35px !important;
+    border-left: 3px solid transparent !important;
+    transition: all 0.25s ease !important;
+}
+
+#mobile_top_menu_wrapper .sub-menu li a:hover,
+#mobile_top_menu_wrapper .collapse li a:hover {
+    background: rgba(212, 175, 55, 0.1) !important;
+    border-left-color: #D4AF37 !important;
+    color: #70441d !important;
+    padding-left: 40px !important;
+}
+
+#mobile_top_menu_wrapper .sub-menu li a::before,
+#mobile_top_menu_wrapper .collapse li a::before {
+    content: '◆';
+    font-size: 8px;
+    color: #f7c669;
+    margin-right: 10px;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+#mobile_top_menu_wrapper .sub-menu li a:hover::before,
+#mobile_top_menu_wrapper .collapse li a:hover::before {
+    opacity: 1;
+}
+
+/* === BOUTONS EXPAND (+/-) PREMIUM OR === */
+#mobile_top_menu_wrapper .collapse-icons,
+#mobile_top_menu_wrapper .navbar-toggler {
+    background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%) !important;
+    color: #000 !important;
+    border: none !important;
+    border-radius: 4px !important;
+    width: 35px !important;
+    height: 35px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 2px 6px rgba(181, 154, 87, 0.3) !important;
+    transition: all 0.3s ease !important;
+    margin-right: 10px !important;
+}
+
+#mobile_top_menu_wrapper .collapse-icons:hover,
+#mobile_top_menu_wrapper .navbar-toggler:hover {
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 4px 10px rgba(181, 154, 87, 0.4) !important;
+}
+
+#mobile_top_menu_wrapper .collapse-icons .material-icons {
+    font-size: 20px !important;
+    color: #000 !important;
+    font-weight: bold !important;
+}
+
+/* === SÉPARATEURS DÉCORATIFS === */
+#mobile_top_menu_wrapper .category:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25px;
+    right: 25px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(181, 154, 87, 0.3), transparent);
+}
+
+/* === ANIMATION OUVERTURE MENU === */
+#mobile_top_menu_wrapper {
+    animation: slideInLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* === SCROLLBAR MENU MOBILE === */
+#mobile_top_menu_wrapper .js-top-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+#mobile_top_menu_wrapper .js-top-menu::-webkit-scrollbar-track {
+    background: rgba(181, 154, 87, 0.1);
+}
+
+#mobile_top_menu_wrapper .js-top-menu::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #f7c669 0%, #AA7C11 100%);
+    border-radius: 4px;
+}
+
+#mobile_top_menu_wrapper .js-top-menu::-webkit-scrollbar-thumb:hover {
+    background: #70441d;
+}
+
+/* === RESPONSIVE AJUSTEMENTS === */
+@media (max-width: 575px) {
+    #mobile_top_menu_wrapper .category,
+    #mobile_top_menu_wrapper .top-menu > li > a {
+        font-size: 15px !important;
+        padding: 16px 20px !important;
+    }
+    
+    #mobile_top_menu_wrapper .sub-menu li a,
+    #mobile_top_menu_wrapper .collapse li a {
+        font-size: 14px !important;
+        padding: 10px 20px 10px 30px !important;
+    }
+    
+    #mobile_top_menu_wrapper .block-categories-title,
+    #mobile_top_menu_wrapper .top-menu-title {
+        font-size: 18px !important;
+        padding: 18px 20px !important;
+    }
+}
