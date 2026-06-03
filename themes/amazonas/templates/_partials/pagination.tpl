@@ -19,10 +19,10 @@
 *  International Registered Trademark & Property of ETS-Soft
 *}
 <nav class="pagination">
-  <div class="col-md-6">
+  <div class="col-md-4">
     {l s='Showing %from%-%to% of %total% item(s)' d='Shop.Theme.Catalog' sprintf=['%from%' => $pagination.items_shown_from ,'%to%' => $pagination.items_shown_to, '%total%' => $pagination.total_items]}
   </div>
-  <div class="col-md-6">
+  <div class="col-md-7">
     <ul class="page-list clearfix">
       {foreach from=$pagination.pages item="page"}
         <li {if $page.current} class="current" {/if}>
@@ -35,9 +35,9 @@
               class="{if $page.type === 'previous'}previous {elseif $page.type === 'next'}next {/if}{['disabled' => !$page.clickable, 'js-search-link' => true]|classnames}"
             >
               {if $page.type === 'previous'}
-                <i class="material-icons">chevron_left</i>{l s='Previous' d='Shop.Theme.Actions'}
+                &lt;
               {elseif $page.type === 'next'}
-                {l s='Next' d='Shop.Theme.Actions'}<i class="material-icons">chevron_right</i>
+                &gt;
               {else}
                 {$page.page|escape:'html':'UTF-8'}
               {/if}

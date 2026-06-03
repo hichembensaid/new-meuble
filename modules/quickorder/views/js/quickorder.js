@@ -138,21 +138,40 @@ console.log('[QuickOrder] JS charge OK');
         .then(function (r) {
             return r.text().then(function (text) {
                 console.log('[QuickOrder] Reponse brute:', text.substring(0, 500));
-                setLoading(btn, false);
                 var data;
-                try { data = JSON.parse(text); } catch (e) { showAlert('danger', 'Erreur serveur (' + r.status + '). Voir console F12.'); return; }
+                try { data = JSON.parse(text); } catch (e) { 
+                    setLoading(btn, false); 
+                    showAlert('danger', 'Erreur serveur (' + r.status + '). Voir console F12.'); 
+                    return; 
+                }
                 if (data.success) {
+                    // Cacher le formulaire mais garder les boutons
                     form.style.display = 'none';
-                    var footer = document.querySelector(MODAL_ID + ' .modal-footer');
-                    if (footer) footer.style.display = 'none';
                     showAlert('success', data.message || 'Commande enregistree !');
-                    setTimeout(function () {
-                        if (window.$ && typeof window.$.fn.modal === 'function') window.$(MODAL_ID).modal('hide');
-                        form.reset(); form.style.display = '';
-                        clearAlert();
-                        if (footer) footer.style.display = '';
-                    }, 4000);
+                    
+                    // Transformer le bouton "Confirmer" en bouton "Fermer"
+                    setLoading(btn, false); // Arrêter le spinner
+                    var label = btn.querySelector('.qo-submit__label');
+                    if (label) {
+                        label.innerHTML = '<i class="material-icons small" aria-hidden="true">&#xe5cd;</i> Fermer';
+                    }
+                    btn.classList.remove('btn-warning', 'quickorder-submit');
+                    btn.classList.add('btn-secondary');
+                    
+                    // Cacher le bouton Annuler
+                    var cancelBtn = document.querySelector(MODAL_ID + ' .btn-outline-secondary');
+                    if (cancelBtn) cancelBtn.style.display = 'none';
+                    
+                    // Le bouton "Fermer" fermera le modal au clic
+                    btn.onclick = function() {
+                        if (window.$ && typeof window.$.fn.modal === 'function') {
+                            window.$(MODAL_ID).modal('hide');
+                        }
+                    };
+                    
+                    // NE PAS fermer automatiquement
                 } else {
+                    setLoading(btn, false); // Réactiver seulement en cas d'erreur
                     showAlert('danger', data.message || 'Une erreur est survenue.');
                 }
             });
@@ -286,7 +305,7 @@ console.log('[QuickOrder] JS charge OK');
         btn.disabled = loading;
         var label   = btn.querySelector('.qo-submit__label');
         var spinner = btn.querySelector('.qo-submit__loading');
-        if (label)   label.style.display   = loading ? 'none'        : '';
+        if (label)   label.style.display   = loading ? 'none'        : 'inline-flex';
         if (spinner) spinner.style.display = loading ? 'inline-flex' : 'none';
     }
 
@@ -297,8 +316,23 @@ console.log('[QuickOrder] JS charge OK');
                 if (!form) return;
                 form.reset(); form.style.display = '';
                 clearFieldErrors(form); clearAlert();
-                var footer = document.querySelector(MODAL_ID + ' .modal-footer');
-                if (footer) footer.style.display = '';
+                
+                var btn = document.querySelector(SUBMIT_ID);
+                if (btn) {
+                    // Réinitialiser complètement le bouton
+                    setLoading(btn, false);
+                    var label = btn.querySelector('.qo-submit__label');
+                    if (label) {
+                        label.innerHTML = '<i class="material-icons small" aria-hidden="true">&#xe558;</i> Confirmer ma commande';
+                    }
+                    btn.classList.remove('btn-secondary');
+                    btn.classList.add('btn-warning', 'quickorder-submit');
+                    btn.onclick = null; // Retirer le handler de fermeture
+                }
+                
+                // Réafficher le bouton Annuler
+                var cancelBtn = document.querySelector(MODAL_ID + ' .btn-outline-secondary');
+                if (cancelBtn) cancelBtn.style.display = '';
             });
         }
     }
