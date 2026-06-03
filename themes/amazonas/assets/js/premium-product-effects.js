@@ -48,29 +48,29 @@
      * 0. DÉSACTIVER OWL CAROUSEL ET FORCER GRILLE CSS
      */
     function destroyOwlCarouselAndEnableGrid() {
-        console.log('🔄 Tentative de destruction du carousel...');
+
         
         // Attendre que Owl soit complètement initialisé
         setTimeout(function() {
             // Sélectionner tous les carousels de produits
             var $owlCarousels = $('.products.owl-carousel');
             
-            console.log('🔍 Nombre de carousels trouvés:', $owlCarousels.length);
+
             
             if ($owlCarousels.length > 0) {
                 $owlCarousels.each(function() {
                     var $carousel = $(this);
-                    console.log('📦 Carousel trouvé:', $carousel.attr('class'));
+
                     
                     // Détruire Owl Carousel si initialisé
                     if ($carousel.hasClass('owl-loaded')) {
-                        console.log('🔨 Destruction du carousel...');
+
                         $carousel.trigger('destroy.owl.carousel');
                         $carousel.removeClass('owl-loaded owl-drag owl-grab');
                         
                         // Extraire les articles du wrapper Owl
                         var $articles = $carousel.find('article');
-                        console.log('📄 Nombre d\'articles trouvés:', $articles.length);
+
                         
                         // Retirer toute la structure Owl
                         $carousel.find('.owl-stage-outer').remove();
@@ -87,14 +87,9 @@
                         // Forcer la classe CSS Grid
                         $carousel.addClass('premium-grid-layout').removeClass('owl-carousel product_list');
                         
-                        console.log('✅ Carousel transformé en grille!');
-                    } else {
-                        console.log('⚠️ Carousel pas encore chargé');
-                    }
+                    } 
                 });
-            } else {
-                console.log('❌ Aucun carousel trouvé');
-            }
+            } 
         }, 1000); // Attendre 1 seconde que Owl soit initialisé
     }
 

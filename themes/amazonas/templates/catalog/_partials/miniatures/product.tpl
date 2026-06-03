@@ -25,7 +25,9 @@
         {block name='product_thumbnail'}
           <a href="{$product.url|escape:'html':'UTF-8'}" class="thumbnail product-thumbnail">
             <img src = "{$product.cover.bySize.home_default.url|escape:'html':'UTF-8'}" alt = "{$product.cover.legend|escape:'html':'UTF-8'}"
-              data-full-size-image-url = "{$product.cover.large.url|escape:'html':'UTF-8'}" />
+              data-full-size-image-url = "{$product.cover.large.url|escape:'html':'UTF-8'}"
+              loading="lazy"
+              decoding="async" />
           </a>
         {/block}
         {block name='product_variants'}

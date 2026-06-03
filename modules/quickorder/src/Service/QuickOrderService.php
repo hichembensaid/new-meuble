@@ -75,7 +75,6 @@ class QuickOrderService
         // --- 5. Journalisation ---------------------------------------------
         PrestaShopLogger::addLog(
             sprintf(
-                '[QuickOrder] Commande #%s créée pour %s %s (tél. %s)',
                 $order->reference,
                 $data['firstname'],
                 $data['lastname'],

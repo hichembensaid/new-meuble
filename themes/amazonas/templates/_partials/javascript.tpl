@@ -41,3 +41,7 @@
 
 {* === LOADER PREMIUM QUICK VIEW === *}
 <script type="text/javascript" src="{$urls.theme_assets}js/quickview-loader.js"></script>
+
+{* === CACHE QUICK VIEW - Optimisation performance === *}
+<script type="text/javascript" src="{$urls.theme_assets}js/quickview-cache.js"></script>
+

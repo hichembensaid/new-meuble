@@ -5,6 +5,21 @@
  * ========================================
  */
 
+// Attendre que jQuery soit chargé
+if (typeof jQuery === 'undefined') {
+    console.warn('⚠️ jQuery not loaded yet, waiting...');
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof jQuery !== 'undefined') {
+            initQuickViewLoaderScript();
+        } else {
+            console.error('❌ jQuery is still not available after DOMContentLoaded');
+        }
+    });
+} else {
+    initQuickViewLoaderScript();
+}
+
+function initQuickViewLoaderScript() {
 (function($) {
     'use strict';
 
@@ -21,11 +36,10 @@
      * Fonction principale
      */
     function initQuickViewLoader() {
-        console.log('🔍 Quick View Loader initialisé');
+
 
         // INTERCEPTER LE CLIC AVANT PRESTASHOP - Priorité maximale
         $(document).on('click.quickviewLoader', '.quick-view', function(e) {
-            console.log('👁️ CLIC Quick View détecté - Affichage loader IMMÉDIAT');
             
             // Afficher le loader immédiatement
             showLoaderOverlay();
@@ -38,7 +52,6 @@
         // Écouter l'événement PrestaShop
         if (typeof prestashop !== 'undefined') {
             prestashop.on('updateProduct', function() {
-                console.log('✓ Produit chargé via PrestaShop');
                 setTimeout(hideLoaderOverlay, 300);
             });
         }
@@ -74,7 +87,6 @@
         `;
         
         $('body').append(overlayHTML);
-        console.log('⏳ Loader overlay affiché');
     }
 
     /**
@@ -84,7 +96,6 @@
         var $overlay = $('#quickview-loader-overlay');
         
         if ($overlay.length > 0) {
-            console.log('✓ Masquage du loader overlay');
             
             $overlay.fadeOut(300, function() {
                 $(this).remove();
@@ -107,10 +118,7 @@
                             
                             // Vérifier si c'est une modal quickview
                             if ($node.hasClass('modal') && 
-                                ($node.hasClass('quickview') || $node.find('.quickview').length > 0)) {
-                                
-                                console.log('📦 Modal Quick View détectée dans le DOM');
-                                
+                                ($node.hasClass('quickview') || $node.find('.quickview').length > 0)) {    
                                 // Attendre que le contenu soit chargé
                                 watchModalContent($node);
                             }
@@ -138,11 +146,9 @@
             checkAttempts++;
             
             if (isModalReady($modal)) {
-                console.log('✓ Modal prête avec contenu complet');
                 clearInterval(checkInterval);
                 hideLoaderOverlay();
             } else if (checkAttempts >= maxAttempts) {
-                console.log('⚠️ Timeout atteint - Masquage du loader');
                 clearInterval(checkInterval);
                 hideLoaderOverlay();
             }
@@ -193,3 +199,4 @@
     }
 
 })(jQuery);
+}

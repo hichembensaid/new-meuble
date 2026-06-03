@@ -25,10 +25,13 @@
 {*
 <link rel="stylesheet" href="{$urls.css_url|escape:'html':'UTF-8'}owl/owl.carousel.css" type="text/css" media="all" />
 <link rel="stylesheet" href="{$urls.css_url|escape:'html':'UTF-8'}owl/owl.theme.css" type="text/css" media="all" />*}
-<link rel="stylesheet" href="{$urls.css_url|escape:'html':'UTF-8'}font-elegant.css" type="text/css" media="all" />
-<link rel="stylesheet" href="{$urls.css_url|escape:'html':'UTF-8'}mobile-menu-clean.css" type="text/css" media="all" />
-<link rel="stylesheet" href="{$urls.css_url|escape:'html':'UTF-8'}custom-colors.css" type="text/css" media="all" />
-<link rel="stylesheet" href="{$urls.css_url|escape:'html':'UTF-8'}premium.css" type="text/css" media="all" />
+
+{* === CUSTOM BUNDLE CSS - PERFORMANCE OPTIMISÉE === *}
+{* Regroupe: font-elegant.css + mobile-menu-clean.css + custom-colors.css + premium.css + premium-product-listing.css + debug-premium.css *}
+<link rel="stylesheet" href="{$urls.css_url|escape:'html':'UTF-8'}custom-bundle.css" type="text/css" media="all" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   
 {if isset($tc_config.YBC_TC_FONT1_DATA) && $tc_config.YBC_TC_FONT1_DATA != ''}

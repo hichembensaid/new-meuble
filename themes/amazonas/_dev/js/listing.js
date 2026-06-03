@@ -24,8 +24,22 @@ import 'velocity-animate';
 
 import ProductMinitature from './components/product-miniature';
 
+// Cache pour Quick View - Optimisation performance
+const quickViewCache = {};
+const MAX_CACHE_SIZE = 30;
+
 $(document).ready(() => {
   prestashop.on('clickQuickView', function (elm) {
+    // Créer une clé unique pour le cache
+    const cacheKey = `${elm.dataset.idProduct}_${elm.dataset.idProductAttribute || '0'}`;
+    
+    // Vérifier si les données sont en cache
+    if (quickViewCache[cacheKey]) {
+      console.log('⚡ Quick View depuis le cache!');
+      showQuickViewModal(quickViewCache[cacheKey]);
+      return;
+    }
+    
     // Afficher le loader
     let loaderId = 'quickview-loader';
     if (!$('#' + loaderId).length) {
@@ -47,26 +61,18 @@ $(document).ready(() => {
       'id_product_attribute': elm.dataset.idProductAttribute,
     };
     $.post(prestashop.urls.pages.product, data, null, 'json').then(function (resp) {
-      $('body').append(resp.quickview_html);
-      let productModal = $(`#quickview-modal-${resp.product.id}-${resp.product.id_product_attribute}`);
+      // Gérer la taille du cache (limiter à MAX_CACHE_SIZE produits)
+      const cacheKeys = Object.keys(quickViewCache);
+      if (cacheKeys.length >= MAX_CACHE_SIZE) {
+        delete quickViewCache[cacheKeys[0]]; // Supprimer le plus ancien
+        console.log('🗑️ Cache Quick View nettoyé (limite atteinte)');
+      }
       
-      // Masquer le loader après que le modal soit affiché
-      productModal.on('shown.bs.modal', function() {
-        $('#' + loaderId).fadeOut(300, function() {
-          $(this).remove();
-        });
-      });
+      // Mettre en cache la réponse
+      quickViewCache[cacheKey] = resp;
+      console.log(`💾 Quick View mis en cache (${cacheKeys.length + 1}/${MAX_CACHE_SIZE})`);
       
-      productModal.modal('show');
-      productConfig(productModal);
-      
-      productModal.on('hidden.bs.modal', function () {
-        productModal.remove();
-        // Au cas où le loader serait encore là
-        if ($('#' + loaderId).length) {
-          $('#' + loaderId).remove();
-        }
-      });
+      showQuickViewModal(resp);
     }).fail((resp) => {
       // Masquer le loader en cas d'erreur
       $('#' + loaderId).fadeOut(200, function() {
@@ -75,6 +81,32 @@ $(document).ready(() => {
       prestashop.emit('handleError', {eventType: 'clickQuickView', resp: resp});
     });
   });
+
+  // Fonction helper pour afficher le modal Quick View
+  function showQuickViewModal(resp) {
+    let loaderId = 'quickview-loader';
+    
+    $('body').append(resp.quickview_html);
+    let productModal = $(`#quickview-modal-${resp.product.id}-${resp.product.id_product_attribute}`);
+    
+    // Masquer le loader après que le modal soit affiché
+    productModal.on('shown.bs.modal', function() {
+      $('#' + loaderId).fadeOut(300, function() {
+        $(this).remove();
+      });
+    });
+    
+    productModal.modal('show');
+    productConfig(productModal);
+    
+    productModal.on('hidden.bs.modal', function () {
+      productModal.remove();
+      // Au cas où le loader serait encore là
+      if ($('#' + loaderId).length) {
+        $('#' + loaderId).remove();
+      }
+    });
+  }
 
   var productConfig = (qv) => {
     const MAX_THUMBS = 4;

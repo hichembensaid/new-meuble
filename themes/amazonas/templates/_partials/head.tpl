@@ -21,6 +21,12 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+{* DNS Prefetch et Preconnect - Optimisation performances *}
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 {block name='head_seo'}
   <title>{block name='head_seo_title'}{$page.meta.title|escape:'html':'UTF-8'}{/block}</title>
   {if isset($page.meta.description)}
@@ -63,12 +69,6 @@
 {block name='stylesheets'}
   {include file="_partials/stylesheets.tpl" stylesheets=$stylesheets}
 {/block}
-
-{* === STYLES PREMIUM LISTING PRODUITS === *}
-<link rel="stylesheet" href="{$urls.theme_assets}css/premium-product-listing.css" type="text/css" media="all">
-<link rel="stylesheet" href="{$urls.theme_assets}css/debug-premium.css" type="text/css" media="all">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 {block name='javascript_head'}
   {include file="_partials/javascript.tpl" javascript=$javascript.head vars=$js_custom_vars}

@@ -13,6 +13,7 @@ img/p/**/*-scene_default.jpg
 img/p/**/*-thickbox_default.jpg
 img/p/**/*-category_default.jpg
 img/p/**/fileType
+img/tmp/*
 
 # Cache
 /cache/*

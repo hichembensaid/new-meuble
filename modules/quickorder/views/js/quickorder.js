@@ -5,7 +5,7 @@
 
 'use strict';
 
-console.log('[QuickOrder] JS charge OK');
+
 
 (function () {
 
@@ -17,7 +17,6 @@ console.log('[QuickOrder] JS charge OK');
     var PHONE_REGEX = /^[0-9+\s\-]{8,20}$/;
 
     document.addEventListener('DOMContentLoaded', function () {
-        console.log('[QuickOrder] DOM ready');
         bindTriggerButton();
         bindSubmitButton();
         bindModalReset();
@@ -29,7 +28,6 @@ console.log('[QuickOrder] JS charge OK');
         document.addEventListener('click', function (e) {
             var btn = e.target.closest ? e.target.closest(BTN_CLASS) : null;
             if (!btn) return;
-            console.log('[QuickOrder] Ouverture modal, product_id=' + btn.dataset.productId);
 
             // Fermer tout modal Bootstrap ouvert (quickview, etc.) avant d'ouvrir le quickorder
             var openModals = document.querySelectorAll('.modal.show, .modal.in');
@@ -95,7 +93,7 @@ console.log('[QuickOrder] JS charge OK');
         document.addEventListener('click', function (e) {
             var btn = e.target.closest ? e.target.closest(SUBMIT_ID) : null;
             if (!btn) return;
-            console.log('[QuickOrder] Confirmer clique');
+
             e.preventDefault();
             e.stopPropagation();
             var form = document.querySelector(FORM_ID);
@@ -128,7 +126,7 @@ console.log('[QuickOrder] JS charge OK');
             postcode:             fd.get('postcode')  || '',
             comment:              fd.get('comment')   || ''
         };
-        console.log('[QuickOrder] Envoi vers', form.dataset.ajaxUrl, payload);
+
         fetch(form.dataset.ajaxUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'XMLHttpRequest' },
@@ -137,7 +135,7 @@ console.log('[QuickOrder] JS charge OK');
         })
         .then(function (r) {
             return r.text().then(function (text) {
-                console.log('[QuickOrder] Reponse brute:', text.substring(0, 500));
+
                 var data;
                 try { data = JSON.parse(text); } catch (e) { 
                     setLoading(btn, false); 
