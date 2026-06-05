@@ -26,6 +26,9 @@ git clone https://github.com/hichembensaid/new-meuble.git
 
 # Se déplacer dans le répertoire du projet
 cd new-meuble
+
+# ⚠️ À ce stade, le dossier vendor n'existe PAS encore
+# Il sera créé à l'étape 5 avec "composer install"
 ```
 
 ## 3. Configuration des Permissions
@@ -136,18 +139,33 @@ parameters:
 
 ## 5. Installation des Dépendances
 
-```bash
-# Installer Composer si ce n'est pas déjà fait
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
+**⚠️ IMPORTANT : Le dossier `vendor` n'est PAS dans Git !**
 
-# Installer les dépendances PHP
+Le dossier `vendor` contient les dépendances PHP et est généré par Composer. Il doit être créé sur le serveur.
+
+```bash
+# Vérifier si Composer est installé
+composer --version
+
+# Si Composer n'est pas installé, l'installer
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+
+# OU sur OVH mutualisé, utiliser le composer local
+php composer.phar --version
+
+# Installer les dépendances PHP (OBLIGATOIRE - créera le dossier vendor)
 composer install --no-dev --optimize-autoloader
+
+# OU si composer n'est pas global
+php composer.phar install --no-dev --optimize-autoloader
 
 # Si vous avez des dépendances Node.js
 npm install
 npm run build
 ```
+
+**Note** : Cette étape peut prendre quelques minutes. Le dossier `vendor` sera créé et contiendra toutes les librairies PHP nécessaires.
 
 ## 6. Import de la Base de Données
 
@@ -295,19 +313,49 @@ chmod 644 config/settings.inc.php
 
 ## 13. Fichiers à NE PAS Versionner (.gitignore)
 
-Assurez-vous que votre `.gitignore` contient :
+**Ces fichiers/dossiers ne sont PAS dans Git et c'est normal :**
 
-```
+```gitignore
+# Dépendances (à générer avec composer install)
+/vendor/
+/node_modules/
+
+# Configuration locale (à créer manuellement sur le serveur)
 /app/config/parameters.php
 /config/settings.inc.php
+
+# Cache et logs
 /var/cache/*
+!/var/cache/.gitkeep
 /var/logs/*
+!/var/logs/.gitkeep
+
+# Fichiers uploadés
 /upload/*
 /download/*
 /img/tmp/*
+/img/p/*
+/img/c/*
+
+# Fichiers système
 .DS_Store
+.idea/
+.vscode/
 composer.phar
+composer.lock
+package-lock.json
+
+# Fichiers sensibles
+*.log
+*.sql
 ```
+
+**À faire sur le serveur après le clone :**
+
+1. ✅ Lancer `composer install` pour créer le dossier `vendor`
+2. ✅ Créer/configurer `app/config/parameters.php`
+3. ✅ Créer/configurer `config/settings.inc.php`
+4. ✅ Créer les dossiers manquants si nécessaire
 
 ## 14. Vérifications Finales
 
