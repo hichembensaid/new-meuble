@@ -143,29 +143,172 @@ parameters:
 
 Le dossier `vendor` contient les dépendances PHP et est généré par Composer. Il doit être créé sur le serveur.
 
+### Option 1 : Utiliser Composer en local sur le serveur OVH
+
 ```bash
-# Vérifier si Composer est installé
-composer --version
+# Télécharger Composer localement (sans droits root)
+cd /var/www/new-meuble
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
 
-# Si Composer n'est pas installé, l'installer
-curl -sS https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
+# Utiliser Composer local pour installer les dépendances
+php composer.phar install --no-dev --optimize-autoloader
+```
 
-# OU sur OVH mutualisé, utiliser le composer local
-php composer.phar --version
+### Option 2 : Générer vendor en local et l'uploader (SI Option 1 ne fonctionne pas)
 
-# Installer les dépendances PHP (OBLIGATOIRE - créera le dossier vendor)
+**Sur votre machine locale (Windows) :**
+
+```powershell
+# Dans votre projet local
+cd d:\projets\new-meuble
+
+# Installer les dépendances
 composer install --no-dev --optimize-autoloader
 
-# OU si composer n'est pas global
-php composer.phar install --no-dev --optimize-autoloader
+# Créer une archive du dossier vendor
+Compress-Archive -Path vendor -DestinationPath vendor.zip
+```
 
+**Puis sur le serveur OVH via FTP/SFTP :**
+1. Uploader le fichier `vendor.zip` vers `/var/www/new-meuble/`
+2. Se connecter en SSH et décompresser :
+
+```bash
+cd /var/www/new-meuble
+
+# Option 1 : Avec unzip (si disponible)
+unzip vendor.zip
+rm vendor.zip
+
+# Option 2 : Si unzip n'est pas disponible, utiliser PHP
+php -r "
+\$zip = new ZipArchive;
+if (\$zip->open('vendor.zip') === TRUE) {
+    \$zip->extractTo('./');
+    \$zip->close();
+    echo 'Extraction réussie\n';
+    unlink('vendor.zip');
+} else {
+    echo 'Erreur lors de l\'extraction\n';
+}
+"
+
+# Option 3 : Uploader directement le dossier vendor via FTP/SFTP (plus lent mais fonctionne toujours)
+# Utilisez FileZilla ou WinSCP pour uploader le dossier vendor/ complet
+```
+
+### Option 3 : Utiliser le composer.phar déjà présent (si disponible)
+
+```bash
+# Vérifier si composer.phar existe déjà dans le projet
+cd /var/www/new-meuble
+ls -la composer.phar
+
+# Si oui, l'utiliser directement
+php composer.phar install --no-dev --optimize-autoloader
+```
+
+### Option 4 : Ajouter vendor dans Git (Solution pour hébergement sans Composer)
+
+**⚠️ NON RECOMMANDÉ en général, MAIS fonctionnel et simple pour OVH mutualisé**
+
+Si vous n'avez pas accès à Composer sur votre hébergement OVH, vous pouvez versionner le dossier `vendor` dans Git.
+
+**Étape 1 : Sur votre machine locale Windows**
+
+```powershell
+# Ouvrir le terminal PowerShell
+cd d:\projets\new-meuble
+
+# Générer le dossier vendor avec toutes les dépendances
+composer install --no-dev --optimize-autoloader
+
+# Vérifier que le dossier vendor est créé
+ls vendor
+
+# Modifier le fichier .gitignore pour autoriser vendor
+# Ouvrir .gitignore et commenter ou supprimer cette ligne : /vendor
+```
+
+**Étape 2 : Éditer le fichier `.gitignore`**
+
+Ouvrez `d:\projets\new-meuble\.gitignore` et modifiez :
+
+```gitignore
+# AVANT :
+/vendor
+
+# APRÈS (commenter la ligne) :
+# /vendor
+```
+
+**Étape 3 : Ajouter vendor dans Git**
+
+```powershell
+# Ajouter tous les fichiers du dossier vendor
+git add vendor/
+
+# Vérifier ce qui va être ajouté
+git status
+
+# Créer le commit
+git commit -m "Add vendor directory for OVH deployment without Composer"
+
+# Pousser vers GitHub
+git push origin main
+```
+
+**Étape 4 : Sur le serveur OVH via SSH**
+
+```bash
+# Le dossier vendor sera maintenant automatiquement cloné avec le projet
+cd /var/www
+git clone https://github.com/hichembensaid/new-meuble.git
+cd new-meuble
+
+# Vérifier que vendor existe
+ls -la vendor/
+
+# C'est tout ! Pas besoin de composer install
+```
+
+**📊 Avantages :**
+- ✅ Déploiement ultra-simple (juste un git clone)
+- ✅ Fonctionne sur n'importe quel hébergement
+- ✅ Pas besoin de Composer sur le serveur
+- ✅ Pas de problème de compatibilité PHP
+
+**⚠️ Inconvénients :**
+- ❌ Repository beaucoup plus lourd (100-200 Mo au lieu de quelques Mo)
+- ❌ Git clone plus long
+- ❌ Difficile de voir vos vrais changements dans les diffs
+- ❌ Mises à jour des dépendances plus complexes
+
+**🔄 Pour mettre à jour les dépendances plus tard :**
+
+```powershell
+# Sur votre machine locale
+composer update --no-dev --optimize-autoloader
+git add vendor/
+git commit -m "Update vendor dependencies"
+git push origin main
+
+# Sur le serveur OVH
+cd /var/www/new-meuble
+git pull origin main
+```
+
+### Dépendances Node.js (optionnel)
+
+```bash
 # Si vous avez des dépendances Node.js
 npm install
 npm run build
 ```
 
-**Note** : Cette étape peut prendre quelques minutes. Le dossier `vendor` sera créé et contiendra toutes les librairies PHP nécessaires.
+**Note** : Choisissez l'option qui correspond à votre environnement OVH. L'option 1 ou 2 est recommandée.
 
 ## 6. Import de la Base de Données
 
