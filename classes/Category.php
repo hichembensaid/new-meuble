@@ -1027,9 +1027,11 @@ class CategoryCore extends ObjectModel
 
         if ($random === true) {
             $sql .= ' ORDER BY RAND() LIMIT ' . (int) $randomNumberProducts;
-        } elseif ($orderBy !== 'orderprice') {
-            $sql .= ' ORDER BY ' . (!empty($orderByPrefix) ? $orderByPrefix . '.' : '') . '`' . bqSQL($orderBy) . '` ' . pSQL($orderWay) . '
-			LIMIT ' . (((int) $pageNumber - 1) * (int) $productPerPage) . ',' . (int) $productPerPage;
+        } else {
+            $sql .= ' ORDER BY ' . (!empty($orderByPrefix) ? $orderByPrefix . '.' : '') . '`' . bqSQL($orderBy) . '` ' . pSQL($orderWay);
+            if ($orderBy !== 'orderprice') {
+                $sql .= ' LIMIT ' . (((int) $pageNumber - 1) * (int) $productPerPage) . ',' . (int) $productPerPage;
+            }
         }
 
         $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql, true, false);
@@ -1040,6 +1042,8 @@ class CategoryCore extends ObjectModel
 
         if ($orderBy === 'orderprice') {
             Tools::orderbyPrice($result, $orderWay);
+            // Reset array keys after uasort to ensure proper slicing
+            $result = array_values($result);
             $result = array_slice($result, (int) (($pageNumber - 1) * $productPerPage), (int) $productPerPage);
         }
 

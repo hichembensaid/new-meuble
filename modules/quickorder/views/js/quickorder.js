@@ -66,24 +66,53 @@
 
                 if (qtyEl) qtyEl.textContent = qty;
 
-                // Récupérer le prix depuis la page (span.price ou span.product-price)
-                var priceSpan = document.querySelector('.product-prices .price, .price[itemprop="price"], span.price');
-                if (priceSpan && priceEl) {
-                    var priceText = priceSpan.textContent.trim();
-                    priceEl.textContent = priceText;
-
-                    // Calculer le total : extraire la valeur numérique
-                    if (totalEl) {
-                        var numericPrice = parseFloat(priceText.replace(/[^\d,\.]/g, '').replace(',', '.'));
-                        if (!isNaN(numericPrice)) {
-                            var total = (numericPrice * qty).toFixed(3);
-                            // Remettre le format avec la devise
-                            var currency = priceText.replace(/[\d\s,\.]+/, '').trim();
-                            totalEl.textContent = total.replace('.', ',') + '\u00a0' + currency;
-                        } else {
-                            totalEl.textContent = '—';
-                        }
+                // Récupérer le prix ACTUEL depuis la page (pas le prix barré)
+                // Stratégie 1: Utiliser la balise meta (source la plus fiable)
+                var priceAmount = null;
+                var priceMeta = document.querySelector('meta[property="product:price:amount"]');
+                if (priceMeta) {
+                    priceAmount = parseFloat(priceMeta.getAttribute('content'));
+                }
+                
+                // Stratégie 2: Si pas de meta, extraire depuis l'attribut itemprop="price"
+                var priceSpan = document.querySelector(
+                    '.product-prices .current-price span[itemprop="price"], ' +
+                    '.product-price .current-price span[itemprop="price"], ' +
+                    '.current-price span[itemprop="price"], ' +
+                    '.product-prices .current-price, ' +
+                    '.product-price[itemprop="price"]'
+                );
+                
+                var priceText = '';
+                var currency = 'DT';
+                
+                if (priceSpan) {
+                    priceText = priceSpan.textContent.trim();
+                    // Extraire la devise du texte
+                    var currencyMatch = priceText.match(/[A-Z]{2,3}|€|\$|£|DT/);
+                    if (currencyMatch) {
+                        currency = currencyMatch[0];
                     }
+                    
+                    // Si on n'a pas récupéré le montant depuis la meta, l'extraire du texte
+                    if (!priceAmount) {
+                        priceAmount = parseFloat(priceText.replace(/[^\d,\.]/g, '').replace(',', '.'));
+                    }
+                }
+                
+                // Afficher le prix formaté
+                if (priceEl && priceAmount && !isNaN(priceAmount)) {
+                    priceEl.textContent = priceAmount.toFixed(3).replace('.', ',') + '\u00a0' + currency;
+
+                    // Calculer le total avec le prix exact
+                    if (totalEl) {
+                        var total = (priceAmount * qty).toFixed(3);
+                        totalEl.textContent = total.replace('.', ',') + '\u00a0' + currency;
+                    }
+                } else if (priceText) {
+                    // Fallback: afficher le texte brut si extraction échoue
+                    if (priceEl) priceEl.textContent = priceText;
+                    if (totalEl) totalEl.textContent = '—';
                 }
             }
         });
