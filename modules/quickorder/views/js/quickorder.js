@@ -15,6 +15,9 @@
     var SUBMIT_ID   = '#qo-submit';
     var BTN_CLASS   = '.quickorder-btn';
     var PHONE_REGEX = /^[0-9+\s\-]{8,20}$/;
+    
+    // Protection contre les soumissions multiples
+    var isSubmitting = false;
 
     document.addEventListener('DOMContentLoaded', function () {
         bindTriggerButton();
@@ -125,6 +128,13 @@
 
             e.preventDefault();
             e.stopPropagation();
+            
+            // Empêcher les soumissions multiples
+            if (isSubmitting) {
+                console.warn('[QuickOrder] Soumission déjà en cours, ignoré.');
+                return;
+            }
+            
             var form = document.querySelector(FORM_ID);
             if (!form) { console.error('[QuickOrder] Formulaire introuvable'); return; }
             clearAlert();
@@ -139,6 +149,9 @@
     }
 
     function submitOrder(form, btn) {
+        // Marquer comme en cours de soumission
+        isSubmitting = true;
+        
         setLoading(btn, true);
         var fd = new FormData(form);
         var payload = {
@@ -167,11 +180,15 @@
 
                 var data;
                 try { data = JSON.parse(text); } catch (e) { 
+                    isSubmitting = false; // Réinitialiser en cas d'erreur
                     setLoading(btn, false); 
                     showAlert('danger', 'Erreur serveur (' + r.status + '). Voir console F12.'); 
                     return; 
                 }
                 if (data.success) {
+                    // NE PAS réinitialiser isSubmitting ici pour empêcher une deuxième soumission
+                    // form.style.display = 'none';
+                    
                     // Cacher le formulaire mais garder les boutons
                     form.style.display = 'none';
                     showAlert('success', data.message || 'Commande enregistree !');
@@ -198,12 +215,17 @@
                     
                     // NE PAS fermer automatiquement
                 } else {
+                    isSubmitting = false; // Réinitialiser en cas d'erreur
                     setLoading(btn, false); // Réactiver seulement en cas d'erreur
                     showAlert('danger', data.message || 'Une erreur est survenue.');
                 }
             });
         })
-        .catch(function (err) { setLoading(btn, false); showAlert('danger', 'Erreur reseau: ' + err.message); });
+        .catch(function (err) { 
+            isSubmitting = false; // Réinitialiser en cas d'erreur réseau
+            setLoading(btn, false); 
+            showAlert('danger', 'Erreur reseau: ' + err.message); 
+        });
     }
 
     /* ── Règles de validation centralisées ─────────────────────────────────── */
