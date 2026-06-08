@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 $urls = [
-    'http://meuble2.localhost/',
-    'http://meuble2.localhost/53-meuble-de-jardain',
+    'http://https://www.lart-du-meuble.tn/',
+    'http://https://www.lart-du-meuble.tn/53-meuble-de-jardain',
 ];
 
 $iterations = 8;

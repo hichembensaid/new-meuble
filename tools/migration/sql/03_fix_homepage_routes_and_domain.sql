@@ -1,5 +1,5 @@
 -- Correctif post-migration: éviter home vide liée aux routes/domaine importés
--- Cible locale: meuble2.localhost
+-- Cible locale: https://www.lart-du-meuble.tn
 
 START TRANSACTION;
 
@@ -13,8 +13,8 @@ WHERE name IN ('PS_SHOP_DOMAIN', 'PS_SHOP_DOMAIN_SSL', 'PS_SHOP_URI');
 
 INSERT INTO ps_configuration (id_shop_group, id_shop, name, value, date_add, date_upd)
 VALUES
-(NULL, NULL, 'PS_SHOP_DOMAIN', 'meuble2.localhost', NOW(), NOW()),
-(NULL, NULL, 'PS_SHOP_DOMAIN_SSL', 'meuble2.localhost', NOW(), NOW()),
+(NULL, NULL, 'PS_SHOP_DOMAIN', 'https://www.lart-du-meuble.tn', NOW(), NOW()),
+(NULL, NULL, 'PS_SHOP_DOMAIN_SSL', 'https://www.lart-du-meuble.tn', NOW(), NOW()),
 (NULL, NULL, 'PS_SHOP_URI', '/', NOW(), NOW())
 ON DUPLICATE KEY UPDATE
 value = VALUES(value),

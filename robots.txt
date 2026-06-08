@@ -59,7 +59,7 @@ Disallow: /*controller=search
 Disallow: /*controller=statistics
 Disallow: /*controller=attachment
 Disallow: /*controller=guest-tracking
-# Directories for meuble2.localhost
+# Directories for www.lart-du-meuble.tn
 Disallow: /app/
 Disallow: /cache/
 Disallow: /classes/

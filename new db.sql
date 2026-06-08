@@ -1,4 +1,4 @@
-/* Backup for meuble2.localhost/
+/* Backup for www.lart-du-meuble.tn/
  *  at 2026-05-15 10:13:28
  */
 
@@ -2833,8 +2833,8 @@ INSERT INTO `ps_configuration` VALUES
 ('231',NULL,NULL,'HOMESLIDER_PAUSE','7700','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 ('232',NULL,NULL,'HOMESLIDER_LOOP','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 ('233',NULL,NULL,'PS_BASE_DISTANCE_UNIT','m','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-('234',NULL,NULL,'PS_SHOP_DOMAIN','meuble2.localhost','0000-00-00 00:00:00','2026-05-15 09:38:02'),
-('235',NULL,NULL,'PS_SHOP_DOMAIN_SSL','meuble2.localhost','0000-00-00 00:00:00','2026-05-15 09:38:02'),
+('234',NULL,NULL,'PS_SHOP_DOMAIN','www.lart-du-meuble.tn','0000-00-00 00:00:00','2026-05-15 09:38:02'),
+('235',NULL,NULL,'PS_SHOP_DOMAIN_SSL','www.lart-du-meuble.tn','0000-00-00 00:00:00','2026-05-15 09:38:02'),
 ('236',NULL,NULL,'PS_SHOP_NAME','l\'art du meuble rades','0000-00-00 00:00:00','2026-05-15 09:38:02'),
 ('237',NULL,NULL,'PS_SHOP_EMAIL','hbsman@yahoo.fr','0000-00-00 00:00:00','2026-05-15 09:38:02'),
 ('238',NULL,NULL,'PS_MAIL_METHOD','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
@@ -8986,19 +8986,19 @@ CREATE TABLE `ps_pagenotfound` (
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 INSERT INTO `ps_pagenotfound` VALUES
-('1','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://meuble2.localhost/admin640qk6fy4k7dxr66vaa/index.php/configure/shop/maintenance/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:41:44'),
-('2','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://meuble2.localhost/admin640qk6fy4k7dxr66vaa/index.php/improve/international/languages/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:42:11'),
-('3','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://meuble2.localhost/admin640qk6fy4k7dxr66vaa/index.php/improve/international/languages/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:42:30'),
-('4','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://meuble2.localhost/admin640qk6fy4k7dxr66vaa/index.php/improve/international/languages/1/edit?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:42:37'),
-('5','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://meuble2.localhost/admin640qk6fy4k7dxr66vaa/index.php/improve/international/currencies/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:42:50'),
-('6','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://meuble2.localhost/admin640qk6fy4k7dxr66vaa/index.php/improve/international/geolocation/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:42:59'),
-('7','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://meuble2.localhost/admin640qk6fy4k7dxr66vaa/index.php/improve/international/localization/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:43:16'),
-('8','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://meuble2.localhost/admin640qk6fy4k7dxr66vaa/index.php/improve/international/languages/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:43:39'),
-('9','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://meuble2.localhost/admin640qk6fy4k7dxr66vaa/index.php/improve/international/languages/1/edit?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:43:43'),
-('10','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://meuble2.localhost/admin640qk6fy4k7dxr66vaa/index.php/sell/catalog/categories?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:44:27'),
-('11','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://meuble2.localhost/admin640qk6fy4k7dxr66vaa/index.php/configure/advanced/sql-requests/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 10:12:38'),
-('12','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://meuble2.localhost/admin640qk6fy4k7dxr66vaa/index.php/configure/advanced/backups/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 10:12:48'),
-('13','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://meuble2.localhost/admin640qk6fy4k7dxr66vaa/index.php/configure/advanced/backups/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 10:13:25');
+('1','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://www.lart-du-meuble.tn/admin640qk6fy4k7dxr66vaa/index.php/configure/shop/maintenance/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:41:44'),
+('2','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://www.lart-du-meuble.tn/admin640qk6fy4k7dxr66vaa/index.php/improve/international/languages/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:42:11'),
+('3','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://www.lart-du-meuble.tn/admin640qk6fy4k7dxr66vaa/index.php/improve/international/languages/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:42:30'),
+('4','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://www.lart-du-meuble.tn/admin640qk6fy4k7dxr66vaa/index.php/improve/international/languages/1/edit?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:42:37'),
+('5','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://www.lart-du-meuble.tn/admin640qk6fy4k7dxr66vaa/index.php/improve/international/currencies/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:42:50'),
+('6','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://www.lart-du-meuble.tn/admin640qk6fy4k7dxr66vaa/index.php/improve/international/geolocation/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:42:59'),
+('7','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://www.lart-du-meuble.tn/admin640qk6fy4k7dxr66vaa/index.php/improve/international/localization/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:43:16'),
+('8','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://www.lart-du-meuble.tn/admin640qk6fy4k7dxr66vaa/index.php/improve/international/languages/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:43:39'),
+('9','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://www.lart-du-meuble.tn/admin640qk6fy4k7dxr66vaa/index.php/improve/international/languages/1/edit?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:43:43'),
+('10','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://www.lart-du-meuble.tn/admin640qk6fy4k7dxr66vaa/index.php/sell/catalog/categories?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 09:44:27'),
+('11','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://www.lart-du-meuble.tn/admin640qk6fy4k7dxr66vaa/index.php/configure/advanced/sql-requests/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 10:12:38'),
+('12','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://www.lart-du-meuble.tn/admin640qk6fy4k7dxr66vaa/index.php/configure/advanced/backups/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 10:12:48'),
+('13','1','1','/admin640qk6fy4k7dxr66vaa/themes/new-theme/public/index.php?controller=AdminDashboard&token=0734df5ea8492f6d867c4029b69b4090','http://www.lart-du-meuble.tn/admin640qk6fy4k7dxr66vaa/index.php/configure/advanced/backups/?_token=97lF91mVfje7b3sEoDxXCq78n0iZYcYkoL5QgJGyzr0','2026-05-15 10:13:25');
 /* Scheme for table ps_product */
 DROP TABLE IF EXISTS `ps_product`;
 CREATE TABLE `ps_product` (
@@ -9883,7 +9883,7 @@ CREATE TABLE `ps_shop_url` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `ps_shop_url` VALUES
-('1','1','meuble2.localhost','meuble2.localhost','/','','1','1');
+('1','1','www.lart-du-meuble.tn','www.lart-du-meuble.tn','/','','1','1');
 /* Scheme for table ps_smarty_cache */
 DROP TABLE IF EXISTS `ps_smarty_cache`;
 CREATE TABLE `ps_smarty_cache` (

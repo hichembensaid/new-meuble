@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-$url = $argv[1] ?? 'http://meuble2.localhost/53-meuble-de-jardain';
+$url = $argv[1] ?? 'http://https://www.lart-du-meuble.tn/53-meuble-de-jardain';
 
 $ctx = stream_context_create([
     'http' => [

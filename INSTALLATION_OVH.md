@@ -38,7 +38,7 @@ cd new-meuble
 chmod 755 -R ./
 chmod 777 -R ./var/cache
 chmod 777 -R ./var/logs
-chmod 777 -R ./img
+    chmod 777 -R ./img
 chmod 777 -R ./upload
 chmod 777 -R ./download
 chmod 777 -R ./mails
@@ -133,8 +133,8 @@ define('_PS_MODE_DEV_', false);
 
 ```yaml
 parameters:
-    domain: votre-domaine.fr
-    shop_url: https://votre-domaine.fr
+    domain: www.lart-du-meuble.tn
+    shop_url: https://www.lart-du-meuble.tn
 ```
 
 ## 5. Installation des Dépendances
@@ -335,8 +335,8 @@ Créer/éditer : `/etc/apache2/sites-available/new-meuble.conf`
 
 ```apache
 <VirtualHost *:80>
-    ServerName votre-domaine.fr
-    ServerAlias www.votre-domaine.fr
+    ServerName www.lart-du-meuble.tn
+    ServerAlias www.www.lart-du-meuble.tn
     
     DocumentRoot /var/www/new-meuble
     
@@ -364,7 +364,7 @@ Créer/éditer : `/etc/nginx/sites-available/new-meuble`
 ```nginx
 server {
     listen 80;
-    server_name votre-domaine.fr www.votre-domaine.fr;
+    server_name www.lart-du-meuble.tn www.www.lart-du-meuble.tn;
     
     root /var/www/new-meuble;
     index index.php;
@@ -393,11 +393,11 @@ server {
 mysql -h votre_serveur_mysql.mysql.db -u votre_utilisateur -p votre_base_de_donnees
 
 -- Mettre à jour les URLs du shop
-UPDATE ps_shop_url SET domain = 'votre-domaine.fr', domain_ssl = 'votre-domaine.fr' WHERE id_shop = 1;
+UPDATE ps_shop_url SET domain = 'www.lart-du-meuble.tn', domain_ssl = 'www.lart-du-meuble.tn' WHERE id_shop = 1;
 
 -- Mettre à jour les URLs de configuration
-UPDATE ps_configuration SET value = 'https://votre-domaine.fr' WHERE name = 'PS_SHOP_DOMAIN';
-UPDATE ps_configuration SET value = 'https://votre-domaine.fr' WHERE name = 'PS_SHOP_DOMAIN_SSL';
+UPDATE ps_configuration SET value = 'https://www.lart-du-meuble.tn' WHERE name = 'PS_SHOP_DOMAIN';
+UPDATE ps_configuration SET value = 'https://www.lart-du-meuble.tn' WHERE name = 'PS_SHOP_DOMAIN_SSL';
 ```
 
 ## 9. Configuration SSL (Recommandé)
@@ -409,9 +409,9 @@ sudo apt-get install certbot python3-certbot-apache  # Pour Apache
 sudo apt-get install certbot python3-certbot-nginx   # Pour Nginx
 
 # Obtenir le certificat SSL
-sudo certbot --apache -d votre-domaine.fr -d www.votre-domaine.fr
+sudo certbot --apache -d www.lart-du-meuble.tn -d www.www.lart-du-meuble.tn
 # ou
-sudo certbot --nginx -d votre-domaine.fr -d www.votre-domaine.fr
+sudo certbot --nginx -d www.lart-du-meuble.tn -d www.www.lart-du-meuble.tn
 ```
 
 ## 10. Vider les Caches
@@ -429,7 +429,7 @@ rm -rf cache/class_index.php
 
 ## 11. Configuration du Back-Office
 
-1. Accéder au back-office : `https://votre-domaine.fr/psadmin` (ou le nom de votre dossier admin)
+1. Accéder au back-office : `https://www.lart-du-meuble.tn/psadmin` (ou le nom de votre dossier admin)
 2. Se connecter avec vos identifiants
 3. Aller dans **Paramètres de la boutique** > **Trafic & SEO**
 4. Vérifier que l'URL de votre boutique est correcte

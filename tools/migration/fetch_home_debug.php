@@ -9,7 +9,7 @@ $ctx = stream_context_create([
     ],
 ]);
 
-$url = 'http://meuble2.localhost/';
+$url = 'http://https://www.lart-du-meuble.tn/';
 $html = @file_get_contents($url, false, $ctx);
 
 $status = $http_response_header[0] ?? 'no-status';
